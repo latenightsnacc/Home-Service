@@ -1,0 +1,17 @@
+@import 'variables';
+
+.wrapper {
+    background-color: $light-grey;
+    height:100%;
+}
+section {
+    min-height: 100vh;
+}
+
+button {
+    background-color: $dark-pink;
+    color: $primary;
+    outline: none;
+    padding: 10px;
+    text-align: center;
+}

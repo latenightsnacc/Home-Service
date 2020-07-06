@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  list-style: none;
+}
+
+* a, *:hover, *:focus, *:active {
+  text-decoration: none;
+  outline: none;
+}
+
+body, html, .wrapper {
+  overflow-x: hidden !important;
+}
+
+.wrapper {
+  background-color: #f2f2f2;
+  min-height: 100vh;
+}
+
+.navbar, .menu-items, section, .box-lg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar {
+  min-width: 100%;
+  height: 70px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-items {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-items .menu-link {
+  margin-left: 20px;
+}
+
+section {
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+button {
+  background-color: #d33479;
+  color: #fff;
+  outline: none;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #e6bebe;
+}
+
+button.card-btn {
+  position: absolute;
+  bottom: -30px;
+  right: 35%;
+  width: 100px;
+}
+
+.box-lg {
+  width: 100%;
+  height: 90vh;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title {
+  color: #d33479;
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  position: relative;
+}
+
+.box .post-link, .box .post-title {
+  position: absolute;
+  left: 20px;
+}
+
+.box .post-title {
+  bottom: 50px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.box .post-link {
+  border-top: 1px solid #e6bebe;
+  width: 90%;
+  bottom: 30px;
+  color: #d33479;
+}
+/*# sourceMappingURL=stylesheet.css.map */

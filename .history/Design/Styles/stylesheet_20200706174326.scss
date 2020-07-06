@@ -1,0 +1,76 @@
+@import 'variables';
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    list-style: none;
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+        outline: none;
+    }
+}
+
+body, html, .wrapper {
+    overflow-x: hidden !important;
+}
+// Overall Wrapper
+.wrapper {
+    background-color: $light-grey;
+    min-height:100vh;
+}
+
+// Navbar
+.navbar, .menu-items, section, .box-lg {
+    display: flex;
+}
+.navbar {
+    min-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-items {
+    align-items: center;
+    .menu-link {
+        margin-left: 20px;
+    }
+}
+
+// All Sections
+section {
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+button {
+    background-color: $dark-pink;
+    color: $primary;
+    outline: none;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid $light-pink;
+
+    &.card-btn {
+        position: absolute;
+        bottom: -30px;
+        right: 35%;
+        width: 100px;
+    }
+}
+.box-lg {
+    width: 100%;
+    height: 90vh;
+    box-shadow: $box-shadow;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    display: flex;
+    width: 100%;
+    justify-content: center !important;
+    flex-direction: column;
+    align-items: center !important;
+    position: relative;
+}
