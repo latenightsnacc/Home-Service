@@ -1,0 +1,28 @@
+import Menu from "../../components/Menu";
+import Banner from "../../components/Banner";
+import Spacer from "../../components/Spacer";
+import Navbar from "../../components/Navbar";
+import Summary from "../../components/Summary";
+import Footer from "../../components/Footer";
+
+const Attendance = () => {
+    return(
+        <>
+            <Navbar />
+            <Spacer />
+            <Banner />
+            <Menu />
+            <Spacer />
+            <div className="flex flex-row items-center justify-between">
+                <h2 className="ml-5 text-gray-800 text-xl">Recent</h2>
+                    <Link to={"/dashboard/secretarygeneral/new"}>
+                        <button className=" h-10  mr-1 lg:mr-2 inline-block px-3 py-2 rounded  tracking-wide text-gray-800 bg-gray-100 bg-opacity-50 hover:bg-green-100 text-xs text-left md:text-right md:text-sm capitalize shadow-sm flex items-center">Create New</button>
+                    </Link>
+                    
+                </div>
+            <h1>Attendance</h1>
+        </>
+    )
+}
+
+export default Attendance;
