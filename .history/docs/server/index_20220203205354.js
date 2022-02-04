@@ -59,12 +59,12 @@ app.post("/recordattendance", (req,res) => {
         const attendance = req.body.attendance;
         const comment = req.body.comment;
     
-        db.query('INSERT INTO attendance (date, id, name, state_code, batch, attendance, comment) VALUES(?,?,?,?,?,?,?)', [date,id,name,state_code,batch,attendance,comment], (err, result) => {
+        db.query('INSERT INTO attendance (date, id, name, state_code, batch, attendance, comment) VALUES(?,?,?,?,?,?,?)', [date,id,name,state,end,type,minutes], (err, result) => {
              if(err){
                  console.log(err)
              } else {
-                 res.send("New Attendance Recorded");
-                 console.log(`New Attendance for ${req.body.date} recorded.`);
+                 res.send("Values Inserted");
+                 console.log(`${req.body.type} minutes created.`);
              }
          })
     } catch (e) {

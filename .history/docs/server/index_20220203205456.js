@@ -64,7 +64,7 @@ app.post("/recordattendance", (req,res) => {
                  console.log(err)
              } else {
                  res.send("New Attendance Recorded");
-                 console.log(`New Attendance for ${req.body.date} recorded.`);
+                 console.log(`New Attendance for ${req.body.date} minutes created.`);
              }
          })
     } catch (e) {

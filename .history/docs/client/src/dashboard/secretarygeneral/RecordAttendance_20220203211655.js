@@ -67,7 +67,7 @@ const RecordAttendance = () => {
         for(var i = 0;i < s.length;i++){
             let a = {};
             if(i % 9 === 0){
-                let l = 1;
+                let l = 0;
                 for(var k = i;k <= i + 8 && k !== s.length;k++){
                     let f = document.getElementsByTagName('input')[k];
                     if(l === 5){
@@ -81,7 +81,7 @@ const RecordAttendance = () => {
                     }
                     l++;
                 }
-                a[0] = `date: ${date.date}`;
+                a
                 rr.push(a);
             }
         }

@@ -63,11 +63,11 @@ const RecordAttendance = () => {
         // rr.push(date);
         console.log(attendance);
         const s = document.getElementsByTagName('input');
-        let n = ["id", "name", "statecode", "batch", "attendance", "comment"];
+        let n = [`date${date.date}`,"id", "name", "statecode", "batch", "attendance", "comment"];
         for(var i = 0;i < s.length;i++){
             let a = {};
             if(i % 9 === 0){
-                let l = 1;
+                let l = 0;
                 for(var k = i;k <= i + 8 && k !== s.length;k++){
                     let f = document.getElementsByTagName('input')[k];
                     if(l === 5){
@@ -81,7 +81,6 @@ const RecordAttendance = () => {
                     }
                     l++;
                 }
-                a[0] = `date: ${date.date}`;
                 rr.push(a);
             }
         }

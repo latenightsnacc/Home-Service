@@ -10,9 +10,16 @@ const RecordAttendance = () => {
     const [list, setList] = useState([]);
     const [error, setError] = useState();
     const [attendance, setAttendance] = useState([]);
-    const [date, setDate] = useState({
-        date: ''
-    });
+    const [newAttendance, setNewAttendance] = useState({
+        date: '',
+        id: {
+            name: '',
+            statecode: '',
+            batch: '',
+            attendance:'',
+            comment:''
+        }
+      })
     useEffect(() => {
         
             Axios.get("http://localhost:3001/members")
@@ -35,42 +42,37 @@ const RecordAttendance = () => {
           ...attendance,
           [e.target.name]: e.target.value
         })
-        setDate({
-          ...attendance,
-          [e.target.name]: e.target.value
+      }
+      const getMemberDetails = (e) => {
+        setNewAttendance({
+          ...newAttendance,
+          date: e.target.value,
+          id : {
+              name: e.target.value,
+              statecode: e.target.value,
+              batch: e.target.value,
+              attendance: e.target.value,
+              comment: e.target.value
+
+            //   [e.target.name]: e.target.value
+          }
         })
       }
-    //   const getMemberDetails = (e) => {
-    //     setNewAttendance({
-    //       ...newAttendance,
-    //       date: e.target.value,
-    //       id : {
-    //           name: e.target.value,
-    //           statecode: e.target.value,
-    //           batch: e.target.value,
-    //           attendance: e.target.value,
-    //           comment: e.target.value
-
-    //         //   [e.target.name]: e.target.value
-    //       }
-    //     })
-    //   }
 
       var rr = [];
       const recordAttendance = (e) => {
         e.preventDefault();
-        console.log("New Attendance Recorded.");
-        // rr.push(date);
+        console.log("New Attendance Recorded.")
         console.log(attendance);
         const s = document.getElementsByTagName('input');
         let n = ["id", "name", "statecode", "batch", "attendance", "comment"];
         for(var i = 0;i < s.length;i++){
             let a = {};
-            if(i % 9 === 0){
-                let l = 1;
-                for(var k = i;k <= i + 8 && k !== s.length;k++){
+            if(i % 8 === 0){
+                let l = 0;
+                for(var k = i;k <= i + 7 && k !== s.length;k++){
                     let f = document.getElementsByTagName('input')[k];
-                    if(l === 5){
+                    if(l === 4){
                         a[n[l]] = attendance[f.getAttribute('name')];
                     }else if(f.getAttribute('type') !== 'radio'){
                         if(f.getAttribute('name') === "comment"){
@@ -81,23 +83,13 @@ const RecordAttendance = () => {
                     }
                     l++;
                 }
-                a[0] = `date: ${date.date}`;
                 rr.push(a);
             }
         }
         console.log(rr);
+        console.log(newAttendance);
         try{
-            Axios.post("http://localhost:3001/recordattendance", {
-                id: rr.id,
-                name: rr.name,
-                statecode: rr.statecode,
-                attendance: rr.attendance,
-                batch: rr.batch,
-                comment: rr.comment,
-                date: rr.date
-            }).then( () => {
-                console.log("Attendance Recorded.");
-            })
+            Axios.post("http://localhost:3001/recordattendance", )
         } catch(e) {
             console.log(e);
         }
@@ -116,17 +108,6 @@ const RecordAttendance = () => {
                                         <i className="fas fa-angle-left"></i></span>
                                 </Link>
                                 <h1 className="font-semibold text-3xl ml-5 ">Record Attendance</h1>
-                                <div>
-                                    <label className="mr-2" for={"date"}>Date: </label>
-                                    <input
-                                    type={"date"}
-                                    id="date"
-                                    name="date" 
-                                    value={date.date}
-                                    className="border-1 rounded py-2 px-3 focus:outline-none"
-                                    onChange={getDetails}
-                                    />  
-                                </div>
                             </div>
                             <div className="flex">
                             <button type="submit" className="my-1 mr-1 lg:mr-2 inline-block px-3 py-2 rounded tracking-wide text-gray-800 bg-gray-100 bg-opacity-50 hover:bg-green-100 text-xs text-left md:text-right md:text-sm capitalize shadow-sm flex items-center">
@@ -172,7 +153,8 @@ const RecordAttendance = () => {
                                                 id="id"
                                                 value={val.id}
                                                 className="text-xs bg-transparent md:text-sm border-0 rounded focus:border-1 focus:outline-none focus:border-green-500 w-8"
-                                                                                                readOnly 
+                                                onLoad={getMemberDetails}
+                                                readOnly 
                                                 />
                                         </td>
                                         <td className="hidden md:table-cell">
@@ -182,7 +164,7 @@ const RecordAttendance = () => {
                                                 id="name"
                                                 value={val.name}
                                                 className="text-xs bg-transparent md:text-sm border-0 rounded focus:border-1 focus:outline-none focus:border-green-500 w-full"
-                                                readOnly 
+                                                onLoad={getMemberDetails} readOnly 
                                                 />
                                         </td>
                                         <td className="bg-red-500">
@@ -192,7 +174,7 @@ const RecordAttendance = () => {
                                                 id="statecode"
                                                 value={val.state_code}
                                                 className="text-xs bg-transparent md:text-sm border-0 rounded focus:border-1 focus:outline-none focus:border-green-500 w-28"
-                                                readOnly 
+                                                onLoad={getMemberDetails} readOnly 
                                                 />
                                         </td>
                                         <td className="hidden md:table-cell">
@@ -202,7 +184,7 @@ const RecordAttendance = () => {
                                                 id="batch"
                                                 value={val.batch}
                                                 className="text-xs bg-transparent md:text-sm border-0 rounded focus:border-1 focus:outline-none focus:border-green-500 w-20"
-                                                readOnly 
+                                                onLoad={getMemberDetails} readOnly 
                                                 />
                                         </td>
                                         <td className="text-center ">

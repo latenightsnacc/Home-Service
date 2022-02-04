@@ -60,17 +60,17 @@ const RecordAttendance = () => {
       const recordAttendance = (e) => {
         e.preventDefault();
         console.log("New Attendance Recorded.");
-        // rr.push(date);
+        rr.push(date);
         console.log(attendance);
         const s = document.getElementsByTagName('input');
         let n = ["id", "name", "statecode", "batch", "attendance", "comment"];
         for(var i = 0;i < s.length;i++){
             let a = {};
-            if(i % 9 === 0){
-                let l = 1;
-                for(var k = i;k <= i + 8 && k !== s.length;k++){
+            if(i % 8 === 0){
+                let l = 0;
+                for(var k = i;k <= i + 7 && k !== s.length;k++){
                     let f = document.getElementsByTagName('input')[k];
-                    if(l === 5){
+                    if(l === 4){
                         a[n[l]] = attendance[f.getAttribute('name')];
                     }else if(f.getAttribute('type') !== 'radio'){
                         if(f.getAttribute('name') === "comment"){
@@ -81,7 +81,6 @@ const RecordAttendance = () => {
                     }
                     l++;
                 }
-                a[0] = `date: ${date.date}`;
                 rr.push(a);
             }
         }
@@ -122,7 +121,7 @@ const RecordAttendance = () => {
                                     type={"date"}
                                     id="date"
                                     name="date" 
-                                    value={date.date}
+                                    value={date}
                                     className="border-1 rounded py-2 px-3 focus:outline-none"
                                     onChange={getDetails}
                                     />  
