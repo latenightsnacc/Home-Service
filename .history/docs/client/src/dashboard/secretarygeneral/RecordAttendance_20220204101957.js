@@ -61,7 +61,7 @@ const RecordAttendance = () => {
         // rr.push(date);
         console.log(attendance);
         const s = document.getElementsByTagName('input');
-        let n = ["date","id", "name", "statecode", "batch", "attendance", "comment"];
+        let n = "date"["id", "name", "statecode", "batch", "attendance", "comment",];
         for(var i = 0;i < s.length;i++){
             let a = {};
             if(i % 9 === 0){

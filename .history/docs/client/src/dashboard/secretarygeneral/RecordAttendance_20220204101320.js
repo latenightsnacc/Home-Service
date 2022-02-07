@@ -10,7 +10,9 @@ const RecordAttendance = () => {
     const [list, setList] = useState([]);
     const [error, setError] = useState();
     const [attendance, setAttendance] = useState([]);
-    const [date, setDate] = useState([]);
+    const [date, setDate] = useState({
+        date: ''
+    });
     useEffect(() => {
         
             Axios.get("http://localhost:3001/members")
@@ -61,18 +63,16 @@ const RecordAttendance = () => {
         // rr.push(date);
         console.log(attendance);
         const s = document.getElementsByTagName('input');
-        let n = ["date","id", "name", "statecode", "batch", "attendance", "comment"];
+        let n = ["id", "name", "statecode", "batch", "attendance", "comment","date"];
         for(var i = 0;i < s.length;i++){
             let a = {};
             if(i % 9 === 0){
-                let l = 0;
+                let l = 1;
                 for(var k = i;k <= i + 8 && k !== s.length;k++){
                     let f = document.getElementsByTagName('input')[k];
                     if(l === 4 || i === 6){
                         if(i === 4) {
-                            a[n[l]] = attendance[f.getAttribute('name')];
-                        } else {
-                            a[n[l]] = date[f.getAttribute('name')];
+                            
                         }
                         
                     }else if(f.getAttribute('type') !== 'radio'){
