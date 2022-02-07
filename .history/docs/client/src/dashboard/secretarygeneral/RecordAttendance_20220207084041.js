@@ -10,14 +10,14 @@ const RecordAttendance = () => {
     const [list, setList] = useState([]);
     const [error, setError] = useState();
     const [attendance, setAttendance] = useState([]);
-    const [data, setData] = useState({
-        attendance_date: '',
-        corper_id: '',
-        corper_name: '',
-        corper_statecode: '',
-        corper_batch:'',
-        corper_attendance: '',
-        corper_comment: ''
+    const [values, setValues] = useState({
+        date: '',
+        id: '',
+        name: '',
+        statecode: '',
+        batch:'',
+        attendance: '',
+        comment: ''
         
     })
     const [date, setDate] = useState([]);
@@ -71,16 +71,15 @@ const RecordAttendance = () => {
           const batch = document.getElementById('batch').value;
           const statecode = document.getElementById('statecode').value;
           const comment = document.getElementById('comment').value;
-          setData({
-              attendance_date: date,
-              corper_id: id,
-              corper_name: name,
-              corper_batch: batch,
-              corper_statecode: statecode,
-              corper_attendance: e.target.value,
-              corper_comment: comment
+          setValues({
+              date: date,
+              id: id,
+              name: name,
+              batch: batch,
+              statecode: statecode,
+              attendance: e.target.value,
+              comment: comment
           })
-          console.log(`Values: ${data}`);
           vals.push(date,id,name,batch,statecode,comment);
         console.log(vals);
       }
@@ -140,7 +139,7 @@ const RecordAttendance = () => {
             <Navbar />
             <Spacer />
             <div className="w-full md:w-5/6 md:mx-auto">
-                <form onSubmit={getValues} class="er">
+                <form onSubmit={recordAttendance} class="er">
                     <div className="container text-gray-800">
                         <div className="flex flex-row items-center justify-between">
                             <div className="flex flex-row h-full items-center">

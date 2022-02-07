@@ -8,15 +8,7 @@ import Stats from '../components/Stats';
 const Treasurer = () => {
     return(
         <div>
-            <Navbar />
-            <Banner position={"Treasurer"} />
-            <Menu />
-            <div className="w-full md:w-5/6 md:mx-auto">
-                <Spacer />
-                <Stats  />
-                <Spacer />
-            </div>
-            <Footer />
+            <h1>Dashboard Treasurer</h1>
         </div>
     )
 }

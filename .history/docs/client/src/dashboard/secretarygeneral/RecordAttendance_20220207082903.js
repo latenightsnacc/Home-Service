@@ -10,16 +10,6 @@ const RecordAttendance = () => {
     const [list, setList] = useState([]);
     const [error, setError] = useState();
     const [attendance, setAttendance] = useState([]);
-    const [data, setData] = useState({
-        attendance_date: '',
-        corper_id: '',
-        corper_name: '',
-        corper_statecode: '',
-        corper_batch:'',
-        corper_attendance: '',
-        corper_comment: ''
-        
-    })
     const [date, setDate] = useState([]);
     useEffect(() => {
         
@@ -64,25 +54,13 @@ const RecordAttendance = () => {
     //     })
     //   }
       let vals = [];
-      const getValues = (e) => {
+      const getValues = () => {
           const date = document.getElementById('date').value;
-          const id = document.getElementById('id').value;
           const name =document.getElementById('name').value;
-          const batch = document.getElementById('batch').value;
-          const statecode = document.getElementById('statecode').value;
-          const comment = document.getElementById('comment').value;
-          setData({
-              attendance_date: date,
-              corper_id: id,
-              corper_name: name,
-              corper_batch: batch,
-              corper_statecode: statecode,
-              corper_attendance: e.target.value,
-              corper_comment: comment
-          })
-          console.log(`Values: ${data}`);
-          vals.push(date,id,name,batch,statecode,comment);
-        console.log(vals);
+          const batch = document.getElementById('batch');
+          const statecode = document.getElementById('date');
+          const comment = document.getElementById('date');
+
       }
       var rr = [];
       const recordAttendance = (e) => {
@@ -140,7 +118,7 @@ const RecordAttendance = () => {
             <Navbar />
             <Spacer />
             <div className="w-full md:w-5/6 md:mx-auto">
-                <form onSubmit={getValues} class="er">
+                <form onSubmit={recordAttendance} class="er">
                     <div className="container text-gray-800">
                         <div className="flex flex-row items-center justify-between">
                             <div className="flex flex-row h-full items-center">
@@ -162,7 +140,7 @@ const RecordAttendance = () => {
                                 </div>
                             </div>
                             <div className="flex">
-                            <button onClick={getValues} type="submit" className="my-1 mr-1 lg:mr-2 inline-block px-3 py-2 rounded tracking-wide text-gray-800 bg-gray-100 bg-opacity-50 hover:bg-green-100 text-xs text-left md:text-right md:text-sm capitalize shadow-sm flex items-center">
+                            <button type="submit" className="my-1 mr-1 lg:mr-2 inline-block px-3 py-2 rounded tracking-wide text-gray-800 bg-gray-100 bg-opacity-50 hover:bg-green-100 text-xs text-left md:text-right md:text-sm capitalize shadow-sm flex items-center">
                                 <span><i className="fas fa-save"></i></span><span className="hidden md: ml-1 md:inline-block">Save</span>
                             </button>
                             </div>

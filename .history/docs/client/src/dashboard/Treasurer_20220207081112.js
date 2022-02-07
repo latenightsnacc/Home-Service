@@ -9,7 +9,7 @@ const Treasurer = () => {
     return(
         <div>
             <Navbar />
-            <Banner position={"Treasurer"} />
+            <Banner position={} />
             <Menu />
             <div className="w-full md:w-5/6 md:mx-auto">
                 <Spacer />

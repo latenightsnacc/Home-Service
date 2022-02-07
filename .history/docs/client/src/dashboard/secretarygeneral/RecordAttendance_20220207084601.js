@@ -140,7 +140,7 @@ const RecordAttendance = () => {
             <Navbar />
             <Spacer />
             <div className="w-full md:w-5/6 md:mx-auto">
-                <form onSubmit={getValues} class="er">
+                <form onSubmit={recordAttendance} class="er">
                     <div className="container text-gray-800">
                         <div className="flex flex-row items-center justify-between">
                             <div className="flex flex-row h-full items-center">

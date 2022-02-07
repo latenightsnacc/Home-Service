@@ -1,5 +1,3 @@
-
-
 const Banner = (props) => {
     return (
         <div className="container bg-green-500">
