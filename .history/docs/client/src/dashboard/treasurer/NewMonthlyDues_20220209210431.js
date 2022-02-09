@@ -85,7 +85,7 @@ const NewMonthlyDues = () => {
     // });
     console.log("Dues List:");
     
-    console.log(rr);    
+    console.log(returnValue(duesValues));    
 };
     
 

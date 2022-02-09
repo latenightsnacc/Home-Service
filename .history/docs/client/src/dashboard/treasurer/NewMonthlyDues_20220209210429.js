@@ -52,7 +52,7 @@ const NewMonthlyDues = () => {
     const duesValues = Object.values(duesCollected);
     console.log(`Dues Values Array: ${duesValues}`);
     const rr = [];
-    
+    l
     const returnValue = (arr) => {
         for(var i = 0; i < arr.length; ++i){
            console.log(arr[i]);
@@ -85,7 +85,7 @@ const NewMonthlyDues = () => {
     // });
     console.log("Dues List:");
     
-    console.log(rr);    
+    console.log(returnValue(duesValues));    
 };
     
 

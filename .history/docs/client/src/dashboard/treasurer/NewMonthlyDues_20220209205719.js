@@ -42,7 +42,13 @@ const NewMonthlyDues = () => {
             .finally( () => setLoading(false));
         
     })
-    
+
+    const returnValue = (arr) => {
+        for(let i = 0; i < arr.length; i++){
+            return arr[i];
+        }
+        re
+    }
     
   const createMonthlyDues = (e) => {
     e.preventDefault();
@@ -52,12 +58,6 @@ const NewMonthlyDues = () => {
     const duesValues = Object.values(duesCollected);
     console.log(`Dues Values Array: ${duesValues}`);
     const rr = [];
-    
-    const returnValue = (arr) => {
-        for(var i = 0; i < arr.length; ++i){
-           console.log(arr[i]);
-        }
-    }
     duesKeys.forEach(function (f) {
         console.log(`f: ${f}`);
         list.map(function(c) {
@@ -85,7 +85,7 @@ const NewMonthlyDues = () => {
     // });
     console.log("Dues List:");
     
-    console.log(rr);    
+    console.log(returnValue(duesValues));    
 };
     
 

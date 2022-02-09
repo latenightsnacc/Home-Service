@@ -42,7 +42,8 @@ const NewMonthlyDues = () => {
             .finally( () => setLoading(false));
         
     })
-    
+
+
     
   const createMonthlyDues = (e) => {
     e.preventDefault();
@@ -52,39 +53,15 @@ const NewMonthlyDues = () => {
     const duesValues = Object.values(duesCollected);
     console.log(`Dues Values Array: ${duesValues}`);
     const rr = [];
-    
-    const returnValue = (arr) => {
-        for(var i = 0; i < arr.length; ++i){
-           console.log(arr[i]);
-        }
-    }
-    duesKeys.forEach(function (f) {
-        console.log(`f: ${f}`);
-        list.map(function(c) {
-            let l = c.id;
-            let len = list.length;
-            console.log(`len: ${len}`);
-            if(f.endsWith(l)){
-                let a = 0;
-                 rr.push({monthly_dues:returnValue(duesValues),id:c.id,name:c.name,batch: c.batch,lga:c.lga}); 
-                 a++;
-                 console.log(`a: ${a}`); 
-            } else {
-              console.log('end');  
-            }
-            return rr;  
-        });
-    })
-    // list.map(function(c) {
-    //     let l = c.id;
-    //     console.log(`l: ${l}`);
-    //     duesKeys.forEach(function (f) {
-    //         console.log(`f: ${f}`);
-    //     })
-    //     return rr;  
-    // });
+    list.map(function(c) {
+        let l = c.id;
+        console.log(`l: ${l}`);
+        duesKeys.forEach(function (f) {
+            console.log(`f: ${f}`);
+        })
+        return rr;  
+    });
     console.log("Dues List:");
-    
     console.log(rr);    
 };
     

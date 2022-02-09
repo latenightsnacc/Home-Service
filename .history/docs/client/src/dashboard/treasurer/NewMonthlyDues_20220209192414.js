@@ -18,7 +18,41 @@ const NewMonthlyDues = () => {
             ...dues,
             [e.target.name]: e.target.value
         })
+        // let row = list.find(corper => corper.id === `dues_${corper.id}`);
+        // e.target.checked && e.target.name === list.find(corper => corper.id === `dues_${corper.id}`) ? console.log(`Row: ${row}`) : console.log('Dunno');
+        // for(let i = 1; i <= list.length; i++){
+        //     e.target.name === `dues_${i}` ?  
+        //     setDues({
+        //         ...dues,
+        //         [e.target.name]: e.target.value
+        //     })
+        //     : console.log('wahala');
+    
+        // }
+        
+        
+        // for(let i = 1; i <= list.length; i++) {
+        //     const tr = document.getElementById(i);
+        //     if(tr === document.getElementsByTagName("tr")[i].id) {
+        //         setDues({
+        //             ...dues,
+        //             [e.target.name] : [e.target.value]
+        //         })
+        //     }
+        // }
     };
+        // let t;
+        // let tr;
+        // for(let i = 0; i <= list.length; ++i) {
+            
+        //     if ([e.target.checked] === true) {
+        //         tr = document.getElementsByTagName('tr')[i].id;
+        //         t = document.getElementsByTagName('td')[i].innerText;
+        //     }
+           
+        // } 
+        // console.log(`id: ${tr}`);
+        // console.log(t);
     const [newMonthlyDues, setNewMonthlyDues] = useState({
         type: 'monthly dues',
         month: '',
@@ -42,52 +76,86 @@ const NewMonthlyDues = () => {
             .finally( () => setLoading(false));
         
     })
+
+
     
+
     
+    const v = [];
+  const getDetails = (e) => {
+      
+      const rows = list.length;
+    console.log(`rows: ${rows}`)
+    for(let i = 0; i <= list.length; ++i) {
+        v.push(document.getElementsByTagName('tr')[i].innerText);
+    } 
+    //   document.getElementById('form').onclick = function() {
+    //     alert(document.getElementsByTagName('tr')[4].id);
+        
+    // }
+     
+         
+    // setNewMonthlyDues({
+    //   ...newMonthlyDues,
+    // type: 'monthly dues',
+    // id: ''
+    //   name: document.getElementById("name").value,
+    //   statecode: document.getElementById("statecode").value,
+    //   batch: document.getElementById("batch").value,
+    //   lga: document.getElementById("lga").value
+    // [e.target.name]: e.target.value
+    // })
+    
+  }
   const createMonthlyDues = (e) => {
     e.preventDefault();
     const duesCollected = dues;
+    console.log(duesCollected);
     const duesKeys =Object.keys(duesCollected);
-    console.log(`Dues Keys Array: ${duesKeys}`);
+    console.log(duesKeys);
     const duesValues = Object.values(duesCollected);
-    console.log(`Dues Values Array: ${duesValues}`);
+    console.log(duesValues);
     const rr = [];
-    
-    const returnValue = (arr) => {
-        for(var i = 0; i < arr.length; ++i){
-           console.log(arr[i]);
-        }
-    }
-    duesKeys.forEach(function (f) {
-        console.log(`f: ${f}`);
-        list.map(function(c) {
-            let l = c.id;
-            let len = list.length;
-            console.log(`len: ${len}`);
-            if(f.endsWith(l)){
-                let a = 0;
-                 rr.push({monthly_dues:returnValue(duesValues),id:c.id,name:c.name,batch: c.batch,lga:c.lga}); 
-                 a++;
-                 console.log(`a: ${a}`); 
-            } else {
-              console.log('end');  
-            }
-            return rr;  
-        });
-    })
-    // list.map(function(c) {
-    //     let l = c.id;
-    //     console.log(`l: ${l}`);
-    //     duesKeys.forEach(function (f) {
-    //         console.log(`f: ${f}`);
-    //     })
-    //     return rr;  
-    // });
+    list.map(function(c) {
+        let l = c
+        duesKeys.map(function(k){
+            // if(k === `dues_${c.id}`){
+            //     for(var i = 0; i <= list.length; i++){
+            //         duesValues.map((v) => rr.push({monthly_dues:v,id:c.id,name:c.name,batch: c.batch,lga:c.lga}));
+            //     }
+                
+                          
+            // }
+            
+            
+            for(var i = 0; i <= list.length; i++){
+                console.log('hello');
+                // const v = duesValues[c.id];
+                // k === `dues_${c.id}` ? rr.push({m_d:v,id:c.id,nm:c.name,bc: c.batch,lg:c.lga}) : console.log(null) ;
+                // k === `dues_${c.id}` ? rr.push({monthly_dues:v,id:c.id,name:c.name,batch: c.batch,lga:c.lga}) : console.log(null) ;
+         }
+            return 'added to rr';
+        })
+        return rr;
+    });
     console.log("Dues List:");
-    
-    console.log(rr);    
-};
-    
+    console.log(rr);
+    try {
+    //   Axios.post("http://localhost:3001/new", {
+    //     type: newMonthlyDues.type,
+    //     date: newMonthlyDues.date,
+    //     start: newMonthlyDues.start,
+    //     end: newMonthlyDues.end,
+    //     venue: newMonthlyDues.venue,
+    //     topic: newMonthlyDues.topic,
+    //     minutes: newMonthlyDues.minutes
+    //   }).then( (Response) => {
+    //     console.log(Response);
+    //   })
+    } catch(e) {
+      console.log(e);
+    }
+  }
 
   if (loading) return 'Loading';
     if (error) return 'error';
@@ -115,7 +183,7 @@ const NewMonthlyDues = () => {
                                     id={"month"}
                                     name={"month"} 
                                     className="form-input border-0 focus:border-white focus:border-0 py-2 px-3 focus:outline-none"
-                                    onChange={''}
+                                    onChange={getDetails}
                                     />  
                                 </div>
                             
