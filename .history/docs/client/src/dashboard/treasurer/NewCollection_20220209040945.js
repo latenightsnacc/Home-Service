@@ -1,7 +1,6 @@
 import {Link}  from "react-router-dom";
 import { useState, useEffect } from "react";
 import Axios from "axios";
-
 import Spacer from "../../components/Spacer";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -89,7 +88,7 @@ const NewCollection = () => {
                                 </div>
                             
                         </div>
-                        <div className="flex flex-row items-center h-10">
+                        <div className="flex flex-row">
                             <div className="flex">
                                 <button  type="submit" className="my-1 mr-1 lg:mr-2 inline-block px-3 py-2 rounded tracking-wide text-gray-800 bg-gray-100 bg-opacity-50 hover:bg-green-100 text-xs text-left md:text-right md:text-sm capitalize shadow-sm flex items-center">
                                     <span><i className="fas fa-save"></i></span><span className="hidden md: ml-1 md:inline-block">Save</span>

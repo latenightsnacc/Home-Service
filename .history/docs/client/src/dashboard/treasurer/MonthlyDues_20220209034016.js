@@ -12,8 +12,8 @@ const MonthlyDues = () => {
             <Navbar />
             <Banner position={"Treasurer"} />
             <Menu 
-                textClr1={"text-gray-300"}
-                textClr2={"text-green-500"}
+                textClr1={"text-green-500"}
+                textClr2={"text-gray-300"}
                 textClr3={"text-gray-300"}
                 textClr4={"text-gray-300"}
                 textClr5={"text-gray-300"}

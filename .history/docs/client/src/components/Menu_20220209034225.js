@@ -40,7 +40,7 @@ const Menu = (props) => {
                     </li>
                     <li className="mx-2">
                         <Link to={props.link5}>
-                            <div className={`${props.textClr5} text-semibold no-underline hover:no-underline  p-2 hover:text-green-500`}>
+                            <div className={`${props.textClr5}text-semibold no-underline hover:no-underline  p-2 hover:text-green-500`}>
                             <span><i className="far fa-calendar-alt"></i></span> 
                             <span className="hidden ml-1 md:inline-block">{props.navitem5}</span>
                             </div>

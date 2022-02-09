@@ -16,7 +16,7 @@ const Menu = (props) => {
                     </li>
                     <li className="mx-2">
                         <Link to={props.link2}>
-                            <div className={`${props.textClr2} text-semibold no-underline hover:no-underline  p-2 hover:text-green-500`}>
+                            <div className={`${props.textClr2}text-semibold no-underline hover:no-underline  p-2 hover:text-green-500`}>
                                 <span><i className="far fa-clipboard"></i></span> 
                                 <span className="hidden ml-1 md:inline-block">{props.navitem2}</span>
                             </div>
@@ -32,7 +32,7 @@ const Menu = (props) => {
                     </li>
                     <li className="mx-2">
                         <Link to={props.link4}>
-                            <div className={`${props.textClr4} text-semibold no-underline hover:no-underline  p-2 hover:text-green-500`}>
+                            <div className={`${props.textClr4}text-semibold no-underline hover:no-underline  p-2 hover:text-green-500`}>
                                 <span><i className="far fa-file-alt"></i></span> 
                                 <span className="hidden ml-1 md:inline-block">{props.navitem4}</span>
                             </div>
@@ -40,7 +40,7 @@ const Menu = (props) => {
                     </li>
                     <li className="mx-2">
                         <Link to={props.link5}>
-                            <div className={`${props.textClr5} text-semibold no-underline hover:no-underline  p-2 hover:text-green-500`}>
+                            <div className={`${props.textClr5}text-semibold no-underline hover:no-underline  p-2 hover:text-green-500`}>
                             <span><i className="far fa-calendar-alt"></i></span> 
                             <span className="hidden ml-1 md:inline-block">{props.navitem5}</span>
                             </div>
