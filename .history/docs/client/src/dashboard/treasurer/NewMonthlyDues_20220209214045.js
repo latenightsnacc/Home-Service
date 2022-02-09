@@ -54,6 +54,9 @@ const NewMonthlyDues = () => {
     const rr = [];
     
     const returnValue = (arr, i) => {
+        // for(var i = 0; i < arr.length; ++i){
+        //    console.log(arr[i]);
+        // }
         return arr[i];
     }
     duesKeys.forEach(function (f) {
@@ -62,6 +65,7 @@ const NewMonthlyDues = () => {
         list.map(function(c) {
             let l = c.id;
             if(f.endsWith(l)){
+                console.log(count);
                  rr.push({monthly_dues:returnValue(duesValues, count),id:c.id,name:c.name,batch: c.batch,lga:c.lga}); 
             } else {
               console.log('end');  
@@ -70,7 +74,14 @@ const NewMonthlyDues = () => {
             return rr;  
         });
     })
-    
+    // list.map(function(c) {
+    //     let l = c.id;
+    //     console.log(`l: ${l}`);
+    //     duesKeys.forEach(function (f) {
+    //         console.log(`f: ${f}`);
+    //     })
+    //     return rr;  
+    // });
     console.log("Dues List:");
     
     console.log(rr);    

@@ -70,7 +70,14 @@ const NewMonthlyDues = () => {
             return rr;  
         });
     })
-    
+    // list.map(function(c) {
+    //     let l = c.id;
+    //     console.log(`l: ${l}`);
+    //     duesKeys.forEach(function (f) {
+    //         console.log(`f: ${f}`);
+    //     })
+    //     return rr;  
+    // });
     console.log("Dues List:");
     
     console.log(rr);    
