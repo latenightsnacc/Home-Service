@@ -78,7 +78,7 @@ app.post("/newcollection", (req,res) => {
                 corper_batch = a.batch;
                 corper_lga = a.lga;
                 cds = a.cds_group;
-                console.log(a[a].year);
+                console.log(a);
                 // console.log(cds,corper_id,corper_name,corper_statecode,corper_batch,corper_lga,collection,status,amount_paid,dues_for,year);
             }
         } catch(e) {

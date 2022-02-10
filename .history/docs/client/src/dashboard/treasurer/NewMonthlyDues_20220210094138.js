@@ -76,8 +76,6 @@ const NewMonthlyDues = () => {
                 if(arr['amount_'+i] !== undefined){
                     // console.log('amount_'+i);
                     return arr['amount_'+i];
-                }else{
-                    return 0;
                 }
             }else{
                 if(arr[i] !== undefined){
@@ -86,19 +84,22 @@ const NewMonthlyDues = () => {
             }
             
         }
-        let count = 0;
         duesKeys.forEach(function (f) {
-            list.map(function(c) {
-                let l = c.id;
-                if(f.endsWith(l)){
-                    rr.push({dues_for: date.month, year:date.year,collection: newCollection, newCollection_dues:returnValue(duesValues, count),amt_paid:returnValue(amountCollected, count, true),cds_group:c.cds_group,id:c.id,name:c.name,statecode:c.state_code,batch: c.batch,lga:c.lga}); 
-                    console.log(count);
-                } else {
-                return 'end';  
-                }
-                count++;
-                return rr;  
-            });
+            let count = 0;
+            for(let a in amountKeys) {
+                list.map(function(c) {
+                    let l = c.id;
+                    if(f.endsWith(l)){
+                        rr.push({dues_for: date.month, year:date.year,collection: newCollection, newCollection_dues:returnValue(duesValues, count),amt_paid:returnValue(amountCollected, count, true),cds_group:c.cds_group,id:c.id,name:c.name,statecode:c.state_code,batch: c.batch,lga:c.lga}); 
+                        console.log(count);
+                    } else {
+                    return 'end';  
+                    }
+                    count++;
+                    return rr;  
+                });
+            }
+            
         })
         console.log(...rr);
         try {

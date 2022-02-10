@@ -76,9 +76,7 @@ const NewMonthlyDues = () => {
                 if(arr['amount_'+i] !== undefined){
                     // console.log('amount_'+i);
                     return arr['amount_'+i];
-                }else{
-                    return 0;
-                }
+                }el
             }else{
                 if(arr[i] !== undefined){
                     return arr[i];
