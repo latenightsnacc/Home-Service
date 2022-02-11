@@ -53,7 +53,7 @@ app.post("/new", (req,res) => {
 // Create New Monthly Dues
 app.post("/newcollection", (req,res) => {
     console.log(req.body[0].year);
-    const len = Object.keys(req.body).length;
+    console.log(req.body)
         try {
             console.log('try block'); 
             let dues_for = '';
@@ -67,21 +67,22 @@ app.post("/newcollection", (req,res) => {
             let corper_batch = '';
             let corper_lga = '';
             let cds = '';
-            for(let i = 0; i <= len; i++){
-                dues_for = req.body[i].dues_for;
-                year =  req.body[i].year; 
-                collection = req.body[i].collection;
-                status = req.body[i].newCollection_dues;
-                amount_paid =req.body[i].amt_paid;
-                corper_id = req.body[i].id;
-                corper_name = req.body[i].name;
-                corper_statecode = req.body[i].statecode;
-                corper_batch = req.body[i].batch;
-                corper_lga = req.body[i].lga;
-                cds = req.body[i].cds_group;
-                console.log(cds,corper_id,corper_name,corper_statecode,corper_batch,corper_lga,collection,status,amount_paid,dues_for,year);
-            } 
-            
+
+            for(let a in req.body) {
+                dues_for = a.dues_for;
+                year =  a.year; 
+                collection = a.collection;
+                status = a.newCollection_dues;
+                amount_paid =a.amt_paid;
+                corper_id = a.id;
+                corper_name = a.name;
+                corper_statecode = a.statecode;
+                corper_batch = a.batch;
+                corper_lga = a.lga;
+                cds = a.cds_group;
+                console.log(a.year);
+                // console.log(cds,corper_id,corper_name,corper_statecode,corper_batch,corper_lga,collection,status,amount_paid,dues_for,year);
+            }
         } catch(e) {
             console.log(e);
         }

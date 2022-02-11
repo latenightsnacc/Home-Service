@@ -79,9 +79,24 @@ app.post("/newcollection", (req,res) => {
                 corper_batch = req.body[i].batch;
                 corper_lga = req.body[i].lga;
                 cds = req.body[i].cds_group;
-                console.log(cds,corper_id,corper_name,corper_statecode,corper_batch,corper_lga,collection,status,amount_paid,dues_for,year);
+                                // console.log(cds,corper_id,corper_name,corper_statecode,corper_batch,corper_lga,collection,status,amount_paid,dues_for,year);
+
             } 
-            
+            for(let a in req.body) {
+                dues_for = a.dues_for;
+                year =  a.year; 
+                collection = a.collection;
+                status = a.newCollection_dues;
+                amount_paid =a.amt_paid;
+                corper_id = a.id;
+                corper_name = a.name;
+                corper_statecode = a.statecode;
+                corper_batch = a.batch;
+                corper_lga = a.lga;
+                cds = a.cds_group;
+                console.log(a.year);
+                // console.log(cds,corper_id,corper_name,corper_statecode,corper_batch,corper_lga,collection,status,amount_paid,dues_for,year);
+            }
         } catch(e) {
             console.log(e);
         }
