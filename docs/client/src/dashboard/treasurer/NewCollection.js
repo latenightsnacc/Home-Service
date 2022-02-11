@@ -5,7 +5,7 @@ import Spacer from "../../components/Spacer";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
-const NewMonthlyDues = () => {
+const NewCollection = () => {
     const [loading, setLoading] = useState(null);
     const [list, setList] = useState([]);
     const [error, setError] = useState();
@@ -251,4 +251,4 @@ const NewMonthlyDues = () => {
     
 }
 
-export default NewMonthlyDues;
+export default NewCollection;
