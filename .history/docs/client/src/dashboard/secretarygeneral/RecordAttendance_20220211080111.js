@@ -12,8 +12,8 @@ const RecordAttendance = () => {
     const [attendance, setAttendance] = useState([]);
     const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const [date, setDate] = useState({
-        date_recorded: new Date().toLocaleDateString(),
-        month: months[new Date().getMonth()],
+        date_recorded:new Date(),
+        month: new Date().getMonth(),
         year: new Date().getFullYear()
     });
     const [comment, setComment] = useState([]);
@@ -27,7 +27,8 @@ const RecordAttendance = () => {
                 console.error("Error fetching data:", error);
                 setError(error);
             })
-            .finally( () => setLoading(false));   
+            .finally( () => setLoading(false));
+        
     })
     
     const getAttendance = (e) => {

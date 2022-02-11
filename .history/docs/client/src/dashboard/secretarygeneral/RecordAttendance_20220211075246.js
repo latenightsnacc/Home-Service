@@ -12,8 +12,8 @@ const RecordAttendance = () => {
     const [attendance, setAttendance] = useState([]);
     const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const [date, setDate] = useState({
-        date_recorded: new Date().toLocaleDateString(),
-        month: months[new Date().getMonth()],
+        date_recorded:new Date(),
+        month: new Date().getMonth(),
         year: new Date().getFullYear()
     });
     const [comment, setComment] = useState([]);
@@ -27,7 +27,8 @@ const RecordAttendance = () => {
                 console.error("Error fetching data:", error);
                 setError(error);
             })
-            .finally( () => setLoading(false));   
+            .finally( () => setLoading(false));
+        
     })
     
     const getAttendance = (e) => {
@@ -35,6 +36,8 @@ const RecordAttendance = () => {
           ...attendance,
           [e.target.name]: e.target.value
         })
+        
+        
     }
     const getDate = (e) => {
         setDate({
@@ -51,6 +54,52 @@ const RecordAttendance = () => {
         
     }
     const arr = [];
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const a = attendance;
+        const aKeys = Object.keys(a);
+        const comm = comment;
+        let keyV = '';
+        let comV = '';
+        aKeys.forEach(function (f) {
+            // let count = 0;
+            list.map((c) => {
+                let l = c.id;
+                keyV = `attendance_${l}`;
+                comV = `comment_${l}`;
+                if(f.endsWith(l)){
+                    arr.push({
+                        attendance_date: date.date_recorded,
+                        attendance_month: date.month,
+                        attendance_year: date.year,
+                        corper_id: c.id,
+                        corper_name: c.name,
+                        corper_statecode: c.state_code,
+                        corper_batch: c.batch,
+                        corper_lga: c.lga,
+                        corper_cds: c.cds_group,
+                        corper_attendance: a[keyV],
+                        comment: comm[comV]
+                    });
+                }
+                return arr;
+            })
+        })
+        console.log(arr);
+            try{
+            Axios.post("http://localhost:3001/newattendance", {
+                ...arr
+            }, {headers: {
+                'content-type': 'text/json'
+            }}).then( (res) => {
+                console.log(res);
+            })
+        }catch(e) {
+            console.log(e);
+        }
+      }
+      
+    
     const newRecord = (e) => {
         e.preventDefault();
         const a = attendance;
@@ -75,17 +124,18 @@ const RecordAttendance = () => {
                         corper_lga: c.lga,
                         corper_cds: c.cds_group,
                         corper_attendance: a[keyV],
-                        comment: comm[comV] === undefined ? null : comm[comV]
+                        comment: comm[comV]
                     });
                 }
                 return arr;
             })
         })
         try{
+            console.log("Hi");
             Axios.post("http://localhost:3001/trynew", {
                 ...arr
             }).then( r => {
-                return r;
+                return r
             })
         }catch(e) {
             console.log(e);

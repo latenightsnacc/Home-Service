@@ -12,8 +12,8 @@ const RecordAttendance = () => {
     const [attendance, setAttendance] = useState([]);
     const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const [date, setDate] = useState({
-        date_recorded: new Date().toLocaleDateString(),
-        month: months[new Date().getMonth()],
+        date_recorded:new Date(),
+        month: new Date().getMonth(),
         year: new Date().getFullYear()
     });
     const [comment, setComment] = useState([]);
@@ -27,7 +27,8 @@ const RecordAttendance = () => {
                 console.error("Error fetching data:", error);
                 setError(error);
             })
-            .finally( () => setLoading(false));   
+            .finally( () => setLoading(false));
+        
     })
     
     const getAttendance = (e) => {
@@ -35,6 +36,8 @@ const RecordAttendance = () => {
           ...attendance,
           [e.target.name]: e.target.value
         })
+        
+        
     }
     const getDate = (e) => {
         setDate({
@@ -51,14 +54,16 @@ const RecordAttendance = () => {
         
     }
     const arr = [];
-    const newRecord = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const a = attendance;
         const aKeys = Object.keys(a);
         const comm = comment;
         let keyV = '';
         let comV = '';
+        try {
         aKeys.forEach(function (f) {
+            // let count = 0;
             list.map((c) => {
                 let l = c.id;
                 keyV = `attendance_${l}`;
@@ -75,18 +80,28 @@ const RecordAttendance = () => {
                         corper_lga: c.lga,
                         corper_cds: c.cds_group,
                         corper_attendance: a[keyV],
-                        comment: comm[comV] === undefined ? null : comm[comV]
+                        comment: comm[comV]
                     });
                 }
                 return arr;
             })
         })
-        try{
-            Axios.post("http://localhost:3001/trynew", {
+        console.log(arr);
+        
+            Axios.post("http://localhost:3001/newattendance", {
                 ...arr
-            }).then( r => {
-                return r;
+            }, {headers: {
+                'content-type': 'text/json'
+            }}).then( (res) => {
+                console.log(res);
             })
+        }catch(e) {
+            console.log(e);
+        }
+      }
+      const newRecord = (e) => {
+        try{
+              Ax
         }catch(e) {
             console.log(e);
         }
@@ -99,7 +114,7 @@ const RecordAttendance = () => {
             <Navbar />
             <Spacer />
             <div className="w-full md:w-5/6 md:mx-auto">
-                <form onSubmit={newRecord} class="er">
+                <form onSubmit={handleSubmit} class="er">
                     <div className="container text-gray-800">
                         <div className="flex flex-row items-center justify-between">
                             <div className="flex flex-row h-full items-center">

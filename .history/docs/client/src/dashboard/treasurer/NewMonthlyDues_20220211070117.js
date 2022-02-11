@@ -57,12 +57,13 @@ const NewMonthlyDues = () => {
         })
         
     };
-    const rr = [];
-    const trySending = (e) => {
+    
+    const createMonthlyDues = (e) => {
         e.preventDefault();
         const duesCollected = dues;
         const amountCollected = fee;
         const duesKeys =Object.keys(duesCollected);
+        const rr = [];
         let d; let p;
         duesKeys.forEach(function (f) {
             list.map(function(c) {
@@ -75,7 +76,7 @@ const NewMonthlyDues = () => {
                         year:date.year,
                         collection: newCollection, 
                         newCollection_dues:duesCollected[d],
-                        amt_paid:amountCollected[p] === undefined ? "0": amountCollected[p],
+                        amt_paid:amountCollected[p],
                         cds_group:c.cds_group,
                         id:c.id,
                         name:c.name,
@@ -91,15 +92,21 @@ const NewMonthlyDues = () => {
             });
         })
         console.log(rr);
-        try{
-            Axios.post("http://localhost:3001/try", {
-                ...rr
-            }).then( r => {
-                return r;
+        try {
+            Axios.post("http://localhost:3001/newcollection", {
+               ...rr
+            }, {headers: {
+                'content-type': 'text/json'
+            }}).then( (res) => {
+               return res;
             })
-        }catch(e){
+        }catch(e) {
             console.log(e);
-        } 
+        }
+    };
+    
+    const trySending = (e) => {
+        try
     }
     if (loading) return 'Loading';
     if (error) return 'error';
@@ -108,7 +115,7 @@ const NewMonthlyDues = () => {
         <Navbar />
         <Spacer />
         <div className="w-full md:w-5/6 md:mx-auto">
-                <form onSubmit={trySending} class="er" id="form">
+                <form onSubmit={createMonthlyDues} class="er" id="form">
                     <div className="container text-gray-800">
                         <div className="flex flex-row items-center justify-between">
                             <div className="flex flex-row h-full items-center">

@@ -12,7 +12,7 @@ const RecordAttendance = () => {
     const [attendance, setAttendance] = useState([]);
     const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const [date, setDate] = useState({
-        date_recorded: new Date().toLocaleDateString(),
+        date_recorded:new Date(),
         month: months[new Date().getMonth()],
         year: new Date().getFullYear()
     });

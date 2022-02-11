@@ -58,11 +58,12 @@ const NewMonthlyDues = () => {
         
     };
     const rr = [];
-    const trySending = (e) => {
+    const createMonthlyDues = (e) => {
         e.preventDefault();
         const duesCollected = dues;
         const amountCollected = fee;
         const duesKeys =Object.keys(duesCollected);
+        
         let d; let p;
         duesKeys.forEach(function (f) {
             list.map(function(c) {
@@ -75,7 +76,7 @@ const NewMonthlyDues = () => {
                         year:date.year,
                         collection: newCollection, 
                         newCollection_dues:duesCollected[d],
-                        amt_paid:amountCollected[p] === undefined ? "0": amountCollected[p],
+                        amt_paid:amountCollected[p],
                         cds_group:c.cds_group,
                         id:c.id,
                         name:c.name,
@@ -91,9 +92,23 @@ const NewMonthlyDues = () => {
             });
         })
         console.log(rr);
+        try {
+            Axios.post("http://localhost:3001/newcollection", {
+               ...rr
+            }, {headers: {
+                'content-type': 'text/json'
+            }}).then( (res) => {
+               return res;
+            })
+        }catch(e) {
+            console.log(e);
+        }
+    };
+    
+    const trySending = (e) => {
         try{
             Axios.post("http://localhost:3001/try", {
-                ...rr
+                rr
             }).then( r => {
                 return r;
             })

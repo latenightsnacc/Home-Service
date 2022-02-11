@@ -5,8 +5,8 @@ const mysql = require("mysql");
 // const bodyParser = require("body-parser");
 app.use(cors());
 // const jsonParser = bodyParser.json();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 
 //Database Connection
 const db = mysql.createConnection({
@@ -36,14 +36,6 @@ app.get("/members", (req,res) => {
         }
     })
 })
-// New Collection
-app.post("/try", (req,res) => {
-    console.log(req.body);
-})
-// New Attendance
-app.post("/trynew", (req,res) => {
-    console.log(req.body);
-})
 // Create New Minutes
 app.post("/new", (req,res) => {
     console.log(req.body);
@@ -69,8 +61,11 @@ app.post("/new", (req,res) => {
     }   
 })
 // Create New Monthly Dues
-app.post("/newcollection", function (req, res) {
-    console.log(req.body);    
+app.post("/newcollection",jsonParser, function (req, res) {
+    console.log(req.body);
+    const len = Object.keys(req.body).length;
+    console.log(len);
+    
 })
 // Record Attendance
 app.post("/newattendance", (req,res) => {

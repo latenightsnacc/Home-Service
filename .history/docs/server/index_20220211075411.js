@@ -36,11 +36,10 @@ app.get("/members", (req,res) => {
         }
     })
 })
-// New Collection
+// C
 app.post("/try", (req,res) => {
     console.log(req.body);
 })
-// New Attendance
 app.post("/trynew", (req,res) => {
     console.log(req.body);
 })

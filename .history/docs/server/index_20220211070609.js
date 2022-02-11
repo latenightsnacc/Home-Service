@@ -36,13 +36,8 @@ app.get("/members", (req,res) => {
         }
     })
 })
-// New Collection
 app.post("/try", (req,res) => {
-    console.log(req.body);
-})
-// New Attendance
-app.post("/trynew", (req,res) => {
-    console.log(req.body);
+    
 })
 // Create New Minutes
 app.post("/new", (req,res) => {

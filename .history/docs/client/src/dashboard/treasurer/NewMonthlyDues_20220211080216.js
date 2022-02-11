@@ -58,6 +58,8 @@ const NewMonthlyDues = () => {
         
     };
     const rr = [];
+    
+    
     const trySending = (e) => {
         e.preventDefault();
         const duesCollected = dues;
