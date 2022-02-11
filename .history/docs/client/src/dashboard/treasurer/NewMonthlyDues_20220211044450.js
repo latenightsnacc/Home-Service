@@ -94,7 +94,7 @@ const NewMonthlyDues = () => {
         console.log(rr);
         try {
             Axios.post("http://localhost:3001/newcollection", {
-               ...rr
+               test: 'hello'
             }, {headers: {
                 'content-type': 'text/json'
             }}).then( (res) => {

@@ -61,7 +61,7 @@ app.post("/new", (req,res) => {
     }   
 })
 // Create New Monthly Dues
-app.post("/newcollection",jsonParser, function (req, res) {
+app.post("/newcollection",jsonParser, function (req, res) => {
     console.log(req.body);
     const len = Object.keys(req.body).length;
     console.log(len);

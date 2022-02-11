@@ -4,7 +4,7 @@ const cors = require("cors");
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 app.use(cors());
-const jsonParser = bodyParser.json();
+const jsonParser = bodyParser.json()
 // app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());
 
@@ -61,7 +61,7 @@ app.post("/new", (req,res) => {
     }   
 })
 // Create New Monthly Dues
-app.post("/newcollection",jsonParser, function (req, res) {
+app.post("/newcollection", (req,res) => {
     console.log(req.body);
     const len = Object.keys(req.body).length;
     console.log(len);
