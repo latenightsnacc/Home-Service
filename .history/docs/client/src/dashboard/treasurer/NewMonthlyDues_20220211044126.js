@@ -63,6 +63,7 @@ const NewMonthlyDues = () => {
         const duesCollected = dues;
         const amountCollected = fee;
         const duesKeys =Object.keys(duesCollected);
+        
         const rr = [];
         let d; let p;
         duesKeys.forEach(function (f) {

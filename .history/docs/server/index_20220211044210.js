@@ -63,7 +63,6 @@ app.post("/new", (req,res) => {
 app.post("/newcollection", (req,res) => {
     console.log(req.body);
     const len = Object.keys(req.body).length;
-    console.log(len);
     
 })
 // Record Attendance

@@ -60,39 +60,54 @@ const NewMonthlyDues = () => {
     
     const createMonthlyDues = (e) => {
         e.preventDefault();
+        console.log(date);
         const duesCollected = dues;
         const amountCollected = fee;
+        console.log(amountCollected);
+        const amountKeys = Object.keys(amountCollected);
+        const amountValues = Object.values(amountCollected);
         const duesKeys =Object.keys(duesCollected);
+        const duesValues = Object.values(duesCollected);
         const rr = [];
-        let d; let p;
+        
+        const returnValue = (arr, i, e = false) => {
+            if(e){
+                console.log('amount_'+i);
+                if(arr['amount_'+i] !== undefined){
+                    // console.log('amount_'+i);
+                    return arr['amount_'+i];
+                }else{
+                    return 0;
+                }
+            }else{
+                if(arr[i] !== undefined){
+                    return arr[i];
+                }
+            }
+            
+        }
+        let count = 0;
         duesKeys.forEach(function (f) {
             list.map(function(c) {
                 let l = c.id;
-                d = `dues_${l}`;
-                p = `amount_${l}`;
                 if(f.endsWith(l)){
                     rr.push({
                         dues_for: date.month,
                         year:date.year,
                         collection: newCollection, 
-                        newCollection_dues:duesCollected[d],
-                        amt_paid:amountCollected[p],
+                        newCollection_dues:returnValue(duesValues, count),
+                        amt_paid:returnValue(amountCollected, count, true),
                         cds_group:c.cds_group,
-                        id:c.id,
-                        name:c.name,
-                        statecode:c.state_code,
-                        batch: c.batch,
-                        lga:c.lga
-                    }); 
-                   
+                        id:c.id,name:c.name,statecode:c.state_code,batch: c.batch,lga:c.lga}); 
+                    console.log(count);
                 } else {
                 return 'end';  
                 }
-                // count++;
+                count++;
                 return rr;  
             });
         })
-        console.log(rr);
+        console.log(...rr);
         try {
             Axios.post("http://localhost:3001/newcollection", {
                 ...rr

@@ -53,7 +53,7 @@ const RecordAttendance = () => {
         })
         
     }
-    const arr = [];
+    var rr = [];
     const handleSubmit = (e) => {
         e.preventDefault();
         const a = attendance;
@@ -61,7 +61,7 @@ const RecordAttendance = () => {
         const comm = comment;
         let keyV = '';
         let comV = '';
-        try {
+        
         aKeys.forEach(function (f) {
             // let count = 0;
             list.map((c) => {
@@ -69,7 +69,7 @@ const RecordAttendance = () => {
                 keyV = `attendance_${l}`;
                 comV = `comment_${l}`;
                 if(f.endsWith(l)){
-                    arr.push({
+                    rr.push({
                         attendance_date: date.date_recorded,
                         attendance_month: date.month,
                         attendance_year: date.year,
@@ -83,13 +83,12 @@ const RecordAttendance = () => {
                         comment: comm[comV]
                     });
                 }
-                return arr;
             })
         })
-        console.log(arr);
+        console.log(rr);
         
             Axios.post("http://localhost:3001/newattendance", {
-                ...arr
+                hello: "test"
             }, {headers: {
                 'content-type': 'text/json'
             }}).then( (res) => {

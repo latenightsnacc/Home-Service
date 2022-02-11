@@ -60,10 +60,33 @@ const NewMonthlyDues = () => {
     
     const createMonthlyDues = (e) => {
         e.preventDefault();
+        console.log(date);
         const duesCollected = dues;
         const amountCollected = fee;
+        console.log(amountCollected);
+        // const amountKeys = Object.keys(amountCollected);
+        // const amountValues = Object.values(amountCollected);
         const duesKeys =Object.keys(duesCollected);
+        // const duesValues = Object.values(duesCollected);
         const rr = [];
+        
+        const returnValue = (arr, i, e = false) => {
+            if(e){
+                console.log('amount_'+i);
+                if(arr['amount_'+i] !== undefined){
+                    // console.log('amount_'+i);
+                    return arr['amount_'+i];
+                }else{
+                    return 0;
+                }
+            }else{
+                if(arr[i] !== undefined){
+                    return arr[i];
+                }
+            }
+            
+        }
+        let count = 0;
         let d; let p;
         duesKeys.forEach(function (f) {
             list.map(function(c) {
@@ -88,7 +111,7 @@ const NewMonthlyDues = () => {
                 } else {
                 return 'end';  
                 }
-                // count++;
+                count++;
                 return rr;  
             });
         })
