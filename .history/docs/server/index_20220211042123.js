@@ -108,9 +108,7 @@ app.post("/newcollection", (req,res) => {
     
 })
 // Record Attendance
-app.post("/newattendance", (req,res) => {
-    console.log(req.body);
-})
+app.post("/newattendance", (req,res))
 
 app.listen(3001, () => {
     console.log("Server started on port 3001")

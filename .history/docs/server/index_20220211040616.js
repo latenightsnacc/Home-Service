@@ -4,7 +4,7 @@ const cors = require("cors");
 const mysql = require("mysql");
 
 app.use(cors());
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Database Connection
@@ -108,8 +108,51 @@ app.post("/newcollection", (req,res) => {
     
 })
 // Record Attendance
-app.post("/newattendance", (req,res) => {
+app.post("/recordattendance", (req,res) => {
+    
     console.log(req.body);
+    const len = Object.keys(req.body).length;
+    console.log(len);
+        // try {
+        //     console.log('try block'); 
+        //     let dues_for = '';
+        //     let year =  ''; 
+        //     let collection = '';
+        //     let status = '';
+        //     let amount_paid ='';
+        //     let corper_id = '';
+        //     let corper_name = '';
+        //     let corper_statecode = '';
+        //     let corper_batch = '';
+        //     let corper_lga = '';
+        //     let cds = '';
+        //     for(let i = -1; i <= len; i++){
+        //         dues_for = req.body[i].dues_for;
+        //         year =  req.body[i].year; 
+        //         collection = req.body[i].collection;
+        //         status = req.body[i].newCollection_dues;
+        //         amount_paid =req.body[i].amt_paid;
+        //         corper_id = req.body[i].id;
+        //         corper_name = req.body[i].name;
+        //         corper_statecode = req.body[i].statecode;
+        //         corper_batch = req.body[i].batch;
+        //         corper_lga = req.body[i].lga;
+        //         cds = req.body[i].cds_group;
+        //         console.log(cds,corper_id,corper_name,corper_statecode,corper_batch,corper_lga,collection,status,amount_paid,dues_for,year);
+        //         db.query('INSERT INTO dues_collection (cds_group,corper_id,corper_name,corper_statecode,corper_batch,corper_lga,collection,dues,amount_paid,month,year) VALUES(?,?,?,?,?,?,?,?,?,?,?)',
+        //             [cds,corper_id,corper_name,corper_statecode,corper_batch,corper_lga,collection,status,amount_paid,dues_for,year], (err, result) => {
+        //             if(err){
+        //                 console.log(err)
+        //             } else {
+        //                 res.send(`${collection} for ${corper_name} has been saved.`);
+        //                 console.log(`${collection} for ${corper_name} has been saved.`);
+        //             }
+        //         })
+        //     } 
+            
+        // } catch(e) {
+        //     console.log(e);
+        // }
 })
 
 app.listen(3001, () => {

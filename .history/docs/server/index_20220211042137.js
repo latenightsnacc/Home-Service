@@ -109,7 +109,7 @@ app.post("/newcollection", (req,res) => {
 })
 // Record Attendance
 app.post("/newattendance", (req,res) => {
-    console.log(req.body);
+    console.log(req.body)
 })
 
 app.listen(3001, () => {

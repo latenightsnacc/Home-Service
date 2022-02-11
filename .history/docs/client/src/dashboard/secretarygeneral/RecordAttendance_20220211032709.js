@@ -32,6 +32,7 @@ const RecordAttendance = () => {
     })
     
     const getAttendance = (e) => {
+        
         setAttendance({
           ...attendance,
           [e.target.name]: e.target.value
@@ -53,49 +54,89 @@ const RecordAttendance = () => {
         })
         
     }
+      
+   
+    const recordAttendance = (e) => {
+        e.preventDefault();
+        console.log("New Attendance Recorded.");
+        // rr.push(date);
+        console.log(attendance);
+        const s = document.getElementsByTagName('input');
+        let n = ["date","id", "name", "statecode", "batch", "attendance", "comment"];
+        for(var i = 0;i < s.length;i++){
+            let a = {};
+            if(i % 9 === 0){
+                let l = 0;
+                for(var k = i;k <= i + 8 && k !== s.length;k++){
+                    let f = document.getElementsByTagName('input')[k];
+                    if(l === 4 || i === 6){
+                        if(i === 4) {
+                            a[n[l]] = attendance[f.getAttribute('name')];
+                        } else {
+                            a[n[l]] = date[f.getAttribute('name')];
+                        }
+                        
+                    }else if(f.getAttribute('type') !== 'radio'){
+                        if(f.getAttribute('name') === "comment"){
+                            a['comment'] = f.value;
+                        }else{
+                            a[n[l]] = f.value;
+                        }
+                    }
+                    l++;
+                }
+                // a[0] = `date: ${date.date}`;
+                rr.push(a);
+            }
+        }
+        console.log(rr);
+        try{
+            Axios.post("http://localhost:3001/recordattendance", {
+                id: rr.id,
+                name: rr.name,
+                statecode: rr.statecode,
+                attendance: rr.attendance,
+                batch: rr.batch,
+                comment: rr.comment,
+                date: rr.date
+            }).then( () => {
+                console.log("Attendance Recorded.");
+            })
+        } catch(e) {
+            console.log(e);
+        }
+    }
+      
+
     var rr = [];
     const handleSubmit = (e) => {
         e.preventDefault();
         const a = attendance;
+        console.log(a);
         const aKeys = Object.keys(a);
-        const comm = comment;
-        let keyV = '';
-        let comV = '';
+        console.log(aKeys);
+        const aValues = Object.values(a);
+        console.log(aValues);
+        const c = comment;
+        console.log(c);
+        const cKeys = Object.keys(c);
+        console.log(cKeys);
+        const cValues = Object.values(c);
+        console.log(cValues);
+        
+        for(let val in aKeys){
+            console.log(`val: ${val}`);
+        }
         aKeys.forEach(function (f) {
-            // let count = 0;
+            let count = 0;
             list.map((c) => {
                 let l = c.id;
-                keyV = `attendance_${l}`;
-                comV = `comment_${l}`;
                 if(f.endsWith(l)){
-                    rr.push({
-                        attendance_date: date.date_recorded,
-                        attendance_month: date.month,
-                        attendance_year: date.year,
-                        corper_id: c.id,
-                        corper_name: c.name,
-                        corper_statecode: c.state_code,
-                        corper_batch: c.batch,
-                        corper_lga: c.lga,
-                        corper_cds: c.cds_group,
-                        corper_attendance: a[keyV],
-                        comment: comm[comV]
-                    });
+                    rr.push({dat})
                 }
             })
         })
-        console.log(...rr);
-        try {
-            Axios.post("http://localhost:3001/newattendance", {
-                ...rr
-            }, {headers: {
-                'content-type': 'text/json'
-            }}).then( (res) => {
-                console.log(res);
-            })
-        }catch(e) {
-            console.log(e);
-        }
+        
       }
 
     if (loading) return 'Loading';

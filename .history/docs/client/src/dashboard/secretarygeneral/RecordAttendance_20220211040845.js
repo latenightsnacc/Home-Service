@@ -32,6 +32,7 @@ const RecordAttendance = () => {
     })
     
     const getAttendance = (e) => {
+        
         setAttendance({
           ...attendance,
           [e.target.name]: e.target.value
@@ -53,6 +54,10 @@ const RecordAttendance = () => {
         })
         
     }
+      
+   
+  
+
     var rr = [];
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -86,7 +91,7 @@ const RecordAttendance = () => {
         })
         console.log(...rr);
         try {
-            Axios.post("http://localhost:3001/newattendance", {
+            Axios.post("http://localhost:3001/recordattendance", {
                 ...rr
             }, {headers: {
                 'content-type': 'text/json'

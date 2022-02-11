@@ -4,7 +4,7 @@ const cors = require("cors");
 const mysql = require("mysql");
 
 app.use(cors());
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Database Connection
@@ -25,15 +25,6 @@ db.connect(function (err) {
 
 app.get("/", (req,res) => {
     res.send("Hello world!")
-})
-app.get("/members", (req,res) => {
-    db.query("SELECT * FROM corpers", (err, result) => {
-        if(err) {
-            console.log(err)
-        } else {
-            res.send(result)
-        }
-    })
 })
 // Create New Minutes
 app.post("/new", (req,res) => {
@@ -108,10 +99,39 @@ app.post("/newcollection", (req,res) => {
     
 })
 // Record Attendance
-app.post("/newattendance", (req,res) => {
+app.post("/recordattendance", (req,res) => {
+    
     console.log(req.body);
+    try {
+        const date = req.body.date;
+        const id = req.body.id;
+        const name = req.body.name;
+        const state_code = req.body.state_code;
+        const batch = req.body.batch;
+        const attendance = req.body.attendance;
+        const comment = req.body.comment;
+    
+        db.query('INSERT INTO attendance (date, id, name, state_code, batch, attendance, comment) VALUES(?,?,?,?,?,?,?)', [date,id,name,state_code,batch,attendance,comment], (err, result) => {
+             if(err){
+                 console.log(err)
+             } else {
+                 res.send("New Attendance Recorded");
+                 console.log(`New Attendance for ${req.body.date} recorded.`);
+             }
+         })
+    } catch (e) {
+        console.log(e);
+    }   
 })
-
+app.get("/members", (req,res) => {
+    db.query("SELECT * FROM corpers", (err, result) => {
+        if(err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
 app.listen(3001, () => {
     console.log("Server started on port 3001")
 })

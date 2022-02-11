@@ -86,7 +86,7 @@ const RecordAttendance = () => {
         })
         console.log(...rr);
         try {
-            Axios.post("http://localhost:3001/newattendance", {
+            Axios.post("http://localhost:3001/newAttendance", {
                 ...rr
             }, {headers: {
                 'content-type': 'text/json'
