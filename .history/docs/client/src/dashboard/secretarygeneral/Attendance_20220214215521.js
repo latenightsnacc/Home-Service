@@ -91,17 +91,16 @@ const Attendance = () => {
     }
         
     }
-    const mKeys = Object.keys(month);
-   
-    const mValues = Object.values(month);
-    console.log(mValues[1][1].attendance_month);
+    const mKeys = Object.keys(m)
     // for(const row of results){
     //     let val = parseInt(row.amount_paid, 10);
     //     fees.push(val);
     //     total = fees.reduce((a,b) => {return a + b});
         
     // }
-       
+    
+console.log(month);
+   
     return(
         <>
             <Navbar />
@@ -136,7 +135,7 @@ const Attendance = () => {
                 lateAttendeesTotal={'₦'}
                 lateFee={''}
                 />
-                {mValues.map((record, key) => {
+                {month.forEach((record, key) => {
                 return (
                     <div key={key}
                         className={"hover:cursor-pointer"} 

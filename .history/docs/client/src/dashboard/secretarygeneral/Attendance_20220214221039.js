@@ -143,7 +143,7 @@ const Attendance = () => {
                         onClick={() => {navigate(`../dashboard/secretarygeneral/attendance/${record.date}/${record.collection_year}/${record.collection_for}`)}}>
                         <AttendanceSummary 
                         tag={''}
-                        date={''}
+                        date={record[1]}
                         attendeesTotal={''}
                         absenteesTotal={''}
                         lateAttendeesTotal={'₦'}

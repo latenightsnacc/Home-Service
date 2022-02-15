@@ -94,7 +94,7 @@ const Attendance = () => {
     const mKeys = Object.keys(month);
    
     const mValues = Object.values(month);
-    console.log(mValues[1][1].attendance_month);
+    console.log(mValues);
     // for(const row of results){
     //     let val = parseInt(row.amount_paid, 10);
     //     fees.push(val);

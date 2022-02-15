@@ -56,52 +56,50 @@ const Attendance = () => {
         month.feb.push(a);
         break
         case 'March': 
-        month.mar.push(a);
+        month.f.push(a);
         break
         case 'April': 
-        month.april.push(a);;
+        month.feb.push(a);;
         break
         case 'May': 
-        month.may.push(a);
+        month.feb.push(a);
         break
         case 'June': 
-        month.june.push(a);
+        month.feb.push(a);
         break
         case 'July': 
-        month.july.push(a);
+        month.feb.push(a);
         break
         case 'August': 
-        month.aug.push(a);
+        month.feb.push(a);
         break
         case 'September': 
-        month.sept.push(a);
+        month.feb.push(a);
         break
         case 'October': 
-        month.oct.push(a);
+        month.feb.push(a);
         break
         case 'November': 
         month.nov = m;
         break
         case 'December': 
-        month.dec.push(a);
+        month.feb.push(a);
         break
 
         default:
-        return null;
+        month = month;
     }
         
     }
-    const mKeys = Object.keys(month);
-   
-    const mValues = Object.values(month);
-    console.log(mValues[1][1].attendance_month);
     // for(const row of results){
     //     let val = parseInt(row.amount_paid, 10);
     //     fees.push(val);
     //     total = fees.reduce((a,b) => {return a + b});
         
     // }
-       
+    
+console.log(month);
+   
     return(
         <>
             <Navbar />
@@ -136,14 +134,14 @@ const Attendance = () => {
                 lateAttendeesTotal={'₦'}
                 lateFee={''}
                 />
-                {mValues.map((record, key) => {
+                {results.map((record, key) => {
                 return (
                     <div key={key}
                         className={"hover:cursor-pointer"} 
                         onClick={() => {navigate(`../dashboard/secretarygeneral/attendance/${record.date}/${record.collection_year}/${record.collection_for}`)}}>
                         <AttendanceSummary 
-                        tag={''}
-                        date={''}
+                        tag={record.type}
+                        date={record.date}
                         attendeesTotal={''}
                         absenteesTotal={''}
                         lateAttendeesTotal={'₦'}

@@ -28,7 +28,17 @@ const Attendance = () => {
     useEffect(() => {
         fetchData();
     }, []);
-    
+    let paid = 0;
+    let unpaid = 0;
+    let total = 0;
+    let fees = [];
+    for(const row of results){
+        if(row.payment_status ==="paid") {
+            paid++;
+        } else {
+            unpaid++;
+        }
+    }
     let month = {
         jan: [],
         feb:[],
@@ -43,65 +53,55 @@ const Attendance = () => {
         nov:[],
         dec:[]
     };
-    let a;
     for(const row of results){
-        a = row;
-        const m = a.attendance_month;
-        
-    switch (m) {
-        case 'January': 
-        month.jan.push(a);
-        break
-        case 'February': 
-        month.feb.push(a);
-        break
-        case 'March': 
-        month.mar.push(a);
-        break
-        case 'April': 
-        month.april.push(a);;
-        break
-        case 'May': 
-        month.may.push(a);
-        break
-        case 'June': 
-        month.june.push(a);
-        break
-        case 'July': 
-        month.july.push(a);
-        break
-        case 'August': 
-        month.aug.push(a);
-        break
-        case 'September': 
-        month.sept.push(a);
-        break
-        case 'October': 
-        month.oct.push(a);
-        break
-        case 'November': 
-        month.nov = m;
-        break
-        case 'December': 
-        month.dec.push(a);
-        break
+        let m = row.month;
+        switch (m) {
+            case 'January': 
+            month.jan = m;
+            case 'February': 
+            month.feb = m;
+            case 'March': 
+            month.mar = m;
+            case 'April': 
+            month.april = m;
+            case 'May': 
+            month.may = m;
+            case 'June': 
+            month.june = m;
+            case 'July': 
+            month.july = m;
+            case 'August': 
+            month.a = m;
+            case 'September': 
+            month.jan = m;
+            case 'October': 
+            month.jan = m;
+            case 'November': 
+            month.jan = m;
+            case 'December': 
+            month.jan = m;
+            
+            break
 
-        default:
-        return null;
+            default:
+                month = null;
+        }
+        if(row.month ==="February" && row.year === "monthly_dues") {
+            month.push(row);
+        } 
     }
+    for(const row of results){
+        let val = parseInt(row.amount_paid, 10);
+        fees.push(val);
+        total = fees.reduce((a,b) => {return a + b});
         
     }
-    const mKeys = Object.keys(month);
-   
-    const mValues = Object.values(month);
-    console.log(mValues[1][1].attendance_month);
-    // for(const row of results){
-    //     let val = parseInt(row.amount_paid, 10);
-    //     fees.push(val);
-    //     total = fees.reduce((a,b) => {return a + b});
-        
-    // }
-       
+    console.log(...results);
+
+    console.log(paid);
+    console.log(unpaid);
+    console.log(fees);
+    console.log(total);
     return(
         <>
             <Navbar />
@@ -136,14 +136,14 @@ const Attendance = () => {
                 lateAttendeesTotal={'₦'}
                 lateFee={''}
                 />
-                {mValues.map((record, key) => {
+                {results.map((record, key) => {
                 return (
                     <div key={key}
                         className={"hover:cursor-pointer"} 
-                        onClick={() => {navigate(`../dashboard/secretarygeneral/attendance/${record.date}/${record.collection_year}/${record.collection_for}`)}}>
+                        onClick={() => {navigate(`../dashboard/secretarygeneral/attendance/${record.collection_month}/${record.collection_year}/${record.collection_for}`)}}>
                         <AttendanceSummary 
-                        tag={''}
-                        date={''}
+                        tag={record.type}
+                        date={record.date}
                         attendeesTotal={''}
                         absenteesTotal={''}
                         lateAttendeesTotal={'₦'}

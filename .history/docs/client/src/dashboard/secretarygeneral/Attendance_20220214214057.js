@@ -43,65 +43,62 @@ const Attendance = () => {
         nov:[],
         dec:[]
     };
-    let a;
+    let a
     for(const row of results){
-        a = row;
-        const m = a.attendance_month;
         
-    switch (m) {
-        case 'January': 
-        month.jan.push(a);
-        break
-        case 'February': 
-        month.feb.push(a);
-        break
-        case 'March': 
-        month.mar.push(a);
-        break
-        case 'April': 
-        month.april.push(a);;
-        break
-        case 'May': 
-        month.may.push(a);
-        break
-        case 'June': 
-        month.june.push(a);
-        break
-        case 'July': 
-        month.july.push(a);
-        break
-        case 'August': 
-        month.aug.push(a);
-        break
-        case 'September': 
-        month.sept.push(a);
-        break
-        case 'October': 
-        month.oct.push(a);
-        break
-        case 'November': 
-        month.nov = m;
-        break
-        case 'December': 
-        month.dec.push(a);
-        break
+        console.log(row);
+        // switch (m) {
+        //     case 'January': 
+        //     month.jan = m;
+        //     break
+        //     case 'February': 
+        //     month.feb = m;
+        //     break
+        //     case 'March': 
+        //     month.mar = m;
+        //     break
+        //     case 'April': 
+        //     month.april = m;
+        //     break
+        //     case 'May': 
+        //     month.may = m;
+        //     break
+        //     case 'June': 
+        //     month.june = m;
+        //     break
+        //     case 'July': 
+        //     month.july = m;
+        //     break
+        //     case 'August': 
+        //     month.aug = m;
+        //     break
+        //     case 'September': 
+        //     month.sept = m;
+        //     break
+        //     case 'October': 
+        //     month.oct = m;
+        //     break
+        //     case 'November': 
+        //     month.nov = m;
+        //     break
+        //     case 'December': 
+        //     month.dec = m;
+        //     break
 
-        default:
-        return null;
-    }
+        //     default:
+        //     month = month;
+        // }
         
     }
-    const mKeys = Object.keys(month);
-   
-    const mValues = Object.values(month);
-    console.log(mValues[1][1].attendance_month);
     // for(const row of results){
     //     let val = parseInt(row.amount_paid, 10);
     //     fees.push(val);
     //     total = fees.reduce((a,b) => {return a + b});
         
     // }
-       
+    
+
+   
     return(
         <>
             <Navbar />
@@ -136,14 +133,14 @@ const Attendance = () => {
                 lateAttendeesTotal={'₦'}
                 lateFee={''}
                 />
-                {mValues.map((record, key) => {
+                {results.map((record, key) => {
                 return (
                     <div key={key}
                         className={"hover:cursor-pointer"} 
                         onClick={() => {navigate(`../dashboard/secretarygeneral/attendance/${record.date}/${record.collection_year}/${record.collection_for}`)}}>
                         <AttendanceSummary 
-                        tag={''}
-                        date={''}
+                        tag={record.type}
+                        date={record.date}
                         attendeesTotal={''}
                         absenteesTotal={''}
                         lateAttendeesTotal={'₦'}
