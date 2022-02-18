@@ -70,9 +70,22 @@ const ViewAttendance = () => {
                                 <th scope="col" className="text-left ">1</th>
                                 <th scope="col" className="text-left">2</th>
                                 <th scope="col" className="text-left ">3</th>
-                                <th scope="col" className="text-left ">4</th>
-                                <th scope="col" className="text-left ">5</th>
-                                <th scope="col" className="text-left ">5</th>
+                                <th scope="col" className="text-left ">3</th>
+                                <th scope="col" className="text-left">
+                                            <div className="flex flex-row justify-center items-center text-right">
+                                                <span className="block w-3 h-3 rounded-full bg-green-400"></span><span className="ml-2 capitalize hidden md:inline">present</span>
+                                            </div>
+                                        </th>
+                                        <th scope="col" className="text-left">
+                                            <div className="flex flex-row justify-center items-center text-right">
+                                                <span className="block w-3 h-3 rounded-full bg-yellow-300"></span><span className="ml-2 capitalize hidden md:inline">late</span>
+                                            </div>
+                                        </th>
+                                        <th scope="col" className="text-left">
+                                            <div className="flex flex-row justify-center items-center">
+                                                <span className="block w-3 h-3 rounded-full bg-red-300"></span><span className="ml-2 capitalize hidden md:inline">absent</span>
+                                            </div></th>
+                                <th scope="col" className="text-left w-auto">Comment</th>
                             </tr>
                         </thead>
                             <tbody className="font-light">

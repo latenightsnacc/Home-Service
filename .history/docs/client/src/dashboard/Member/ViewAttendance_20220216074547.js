@@ -60,26 +60,22 @@ const ViewAttendance = () => {
                    />
                    
                </Container>
-               <Spacer />
+               
                <Container>
                     <MiniLayout>
-                    <table className="table table-sm table-bordered border-success text-xs md:text-sm bg-white rounded">
-                        <thead>
-                            <tr>
-                                <th scope="col" className="text-left">Week</th>
-                                <th scope="col" className="text-left ">1</th>
-                                <th scope="col" className="text-left">2</th>
-                                <th scope="col" className="text-left ">3</th>
-                                <th scope="col" className="text-left ">4</th>
-                                <th scope="col" className="text-left ">5</th>
-                                <th scope="col" className="text-left ">5</th>
-                            </tr>
-                        </thead>
-                            <tbody className="font-light">
-                            
-                                                      
-                        </tbody>
-                    </table>
+                    <div className="ml-5 md:ml-10 ">
+                        <h1 className="leading-7 font-medium  md:text-2xl mb-1">Welcome back, Deborah</h1>
+                        <div className="flex flex-col text-xs text-gray-700 md:text-sm lg:text-base">
+                            <span className="font-medium">Statecode: EN/21A/0324</span>
+                            <span className="my-1 font-medium text-green-500">CDS Group: I.C.T</span>
+                            <span className="text-xs font-medium text-gray-400  md:text-sm">{(new Date()).toLocaleDateString('en-US',{
+                                weekday: 'long',
+                                day: 'numeric',
+                                year: 'numeric',
+                                month: 'short'
+                            })}</span>
+                        </div>
+                    </div>
                     </MiniLayout>
                </Container>
             </Layout>

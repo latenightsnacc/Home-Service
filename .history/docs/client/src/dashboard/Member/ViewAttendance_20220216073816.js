@@ -54,32 +54,16 @@ const ViewAttendance = () => {
                <Container>
                    <MemberMenu 
                    itemColor1={"text-gray-300"}
-                   itemColor2={"text-green-500"}
+                   itemColor2={"text-green-400"}
                    itemColor3={"text-gray-300"}
                    itemColor4={"text-gray-300"}
                    />
                    
                </Container>
-               <Spacer />
+               
                <Container>
                     <MiniLayout>
-                    <table className="table table-sm table-bordered border-success text-xs md:text-sm bg-white rounded">
-                        <thead>
-                            <tr>
-                                <th scope="col" className="text-left">Week</th>
-                                <th scope="col" className="text-left ">1</th>
-                                <th scope="col" className="text-left">2</th>
-                                <th scope="col" className="text-left ">3</th>
-                                <th scope="col" className="text-left ">4</th>
-                                <th scope="col" className="text-left ">5</th>
-                                <th scope="col" className="text-left ">5</th>
-                            </tr>
-                        </thead>
-                            <tbody className="font-light">
-                            
-                                                      
-                        </tbody>
-                    </table>
+                        <
                     </MiniLayout>
                </Container>
             </Layout>

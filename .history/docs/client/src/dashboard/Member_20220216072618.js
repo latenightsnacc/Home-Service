@@ -35,7 +35,7 @@ const Member = () => {
                     </div>
                     <div className="ml-5 md:ml-10 ">
                         <h1 className="leading-7 font-medium  md:text-2xl mb-1">Welcome back, Deborah</h1>
-                        <div className="flex flex-col text-xs text-gray-700 md:text-sm lg:text-base">
+                        <div className="flex flex-col text-sm text-gray-700 md:text-base">
                             <span className="font-medium">Statecode: EN/21A/0324</span>
                             <span className="my-1 font-medium text-green-500">CDS Group: I.C.T</span>
                             <span className="text-xs font-medium text-gray-400  md:text-sm">{(new Date()).toLocaleDateString('en-US',{
@@ -64,7 +64,7 @@ const Member = () => {
                
                <Container>
                    <MiniLayout>
-                   <div className="w-full py-2 px-4 md:pl-20 rounded h-20 flex flex-col  justify-center md:flex-row md:justify-start md:items-center shadow-sm my-3">
+                   <div className=" bg-gray-100 w-full py-2 p   md:pl-20 rounded h-20 flex flex-col  justify-center md:flex-row md:justify-start md:items-center shadow-sm my-3">
                        
                         <span className="text-xs md:mr-1 py-1 px-2  w-auto rounded md:bg-green-100 ">{(new Date()).toLocaleDateString('en-US',{
                                 weekday: 'short',
@@ -74,7 +74,7 @@ const Member = () => {
                             })}</span>
                         <span className="text-xs  md:text-sm py-1 px-2"> Attendance ['<span className="text-green-400"> Present </span> '] for CDS Meeting recorded.</span>
                     </div>
-                   <div className="lg:ml-20 max-w-sm md:max-w-lg py-2 px-4 rounded h-20 flex flex-col  justify-center md:flex-row md:justify-start md:items-center shadow-sm my-3">
+                   <div className="lg:ml-20 max-w-sm md:max-w-lg py-2 px-3 rounded h-20 flex flex-col  justify-center md:flex-row md:justify-start md:items-center shadow-sm my-3">
                        
                         <span className="text-xs md:mr-1 py-1 px-2  w-auto rounded md:bg-green-100 ">{(new Date()).toLocaleDateString('en-US',{
                                 weekday: 'short',

@@ -73,6 +73,7 @@ const ViewAttendance = () => {
                                 <th scope="col" className="text-left ">4</th>
                                 <th scope="col" className="text-left ">5</th>
                                 <th scope="col" className="text-left ">5</th>
+                                
                             </tr>
                         </thead>
                             <tbody className="font-light">
