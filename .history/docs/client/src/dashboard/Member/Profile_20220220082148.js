@@ -137,7 +137,7 @@ const ViewAttendance = () => {
                             <input 
                             type={'text'}
                             placeholder={'Email'}
-                            value={'egonubuchi97@gmail.com'}
+                            value={'08125018789'}
                             className={'border-0 text-xs md:text-sm px-2 w-full'}
                         />
                         </div>
@@ -147,7 +147,7 @@ const ViewAttendance = () => {
                     </MiniLayout>
                </Container>
             </Layout>
-
+            <Spacer/>
             <Footer /> 
         </>
     )

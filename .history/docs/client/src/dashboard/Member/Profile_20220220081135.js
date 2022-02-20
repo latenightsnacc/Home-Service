@@ -77,67 +77,23 @@ const ViewAttendance = () => {
                         </div>
                         <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
                             <div className="absolute -top-3">
-                                <label className="text-xs px-2 bg-white text-green-500">Statecode</label>
+                                <label className="text-xs px-2 bg-white text-green-500">Full Name</label>
                             </div>
                             <input 
                             type={'text'}
                             placeholder={'Full Name'}
-                            value={'EN/21A/0324'}
+                            value={'Deborah Onyebuchi Olisa Egonu'}
                             className={'border-0 text-xs md:text-sm px-2 w-full'}
                         />
                         </div>
-                        <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
+                        <div className="relative border-1 py-2 mb-2 border-gray-300 rounded text-sm w-full">
                             <div className="absolute -top-3">
-                                <label className="text-xs px-2 bg-white text-green-500">L.G.A</label>
+                                <label className="text-xs px-2 bg-white text-green-500">Full Name</label>
                             </div>
                             <input 
                             type={'text'}
                             placeholder={'Full Name'}
-                            value={'Enugu Norrth'}
-                            className={'border-0 text-xs md:text-sm px-2 w-full'}
-                        />
-                        </div>
-                        <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
-                            <div className="absolute -top-3">
-                                <label className="text-xs px-2 bg-white text-green-500">C.D.S Group</label>
-                            </div>
-                            <input 
-                            type={'text'}
-                            placeholder={'Full Name'}
-                            value={'Information Comunication Technology (I.C.T)'}
-                            className={'border-0 text-xs md:text-sm px-2 w-full'}
-                        />
-                        </div>
-                        <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
-                            <div className="absolute -top-3">
-                                <label className="text-xs px-2 bg-white text-green-500">Place of Primary Assignment</label>
-                            </div>
-                            <input 
-                            type={'text'}
-                            placeholder={'P.P.A'}
-                            value={'Digital Dreams Ltd'}
-                            className={'border-0 text-xs md:text-sm px-2 w-full'}
-                        />
-                        </div>
-                        <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
-                            <div className="absolute -top-3">
-                                <label className="text-xs px-2 bg-white text-green-500">Phone (Whatsapp)</label>
-                            </div>
-                            <input 
-                            type={'text'}
-                            placeholder={'Full Name'}
-                            value={'08125018789'}
-                            className={'border-0 text-xs md:text-sm px-2 w-full'}
-                        />
-                        </div>
-                        <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
-                            <div className="absolute -top-3">
-                                <label className="text-xs px-2 bg-white text-green-500">Email</label>
-                            </div>
-                            <input 
-                            type={'text'}
-                            placeholder={'Email'}
-                            value={'egonubuchi97@gmail.com'}
+                            value={'Deborah Onyebuchi Olisa Egonu'}
                             className={'border-0 text-xs md:text-sm px-2 w-full'}
                         />
                         </div>
@@ -147,7 +103,7 @@ const ViewAttendance = () => {
                     </MiniLayout>
                </Container>
             </Layout>
-
+            <Spacer/>
             <Footer /> 
         </>
     )

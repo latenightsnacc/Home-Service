@@ -1,24 +1,16 @@
 import {useState, useEffect} from "react";
 import Axios from "axios";
-import MemberMenu from "../../components/MemberMenu";
-import Navbar from '../../components/Navbar';
+
 import Footer from '../../components/Footer';
 import Spacer from '../../components/Spacer';
 import Container from "../../components/Container";
 import Layout from "../../components/Layout";
-import ProfilePic from "../../assets/Debs.png";
+
 import MiniLayout from "../../components/MiniLayout";
 
-const ViewAttendance = () => {
-    let display = 'hidden';
+const Register = () => {
+   
 
-    const toggleDisplay = (e) => {
-        if(display === 'hidden'){
-            display = 'block';
-        } else {
-            display = 'hidden';
-        }
-    }
     return(
         <>
            <Navbar />
@@ -153,4 +145,4 @@ const ViewAttendance = () => {
     )
 }
 
-export default ViewAttendance;
+export default Register;

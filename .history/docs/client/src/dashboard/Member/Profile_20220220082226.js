@@ -147,7 +147,7 @@ const ViewAttendance = () => {
                     </MiniLayout>
                </Container>
             </Layout>
-
+            <Spacer/>
             <Footer /> 
         </>
     )

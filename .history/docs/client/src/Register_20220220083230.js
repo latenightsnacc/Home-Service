@@ -9,7 +9,7 @@ import Layout from "../../components/Layout";
 import ProfilePic from "../../assets/Debs.png";
 import MiniLayout from "../../components/MiniLayout";
 
-const ViewAttendance = () => {
+const Register = () => {
     let display = 'hidden';
 
     const toggleDisplay = (e) => {
@@ -153,4 +153,4 @@ const ViewAttendance = () => {
     )
 }
 
-export default ViewAttendance;
+export default Register;

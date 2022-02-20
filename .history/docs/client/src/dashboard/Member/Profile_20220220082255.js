@@ -130,7 +130,7 @@ const ViewAttendance = () => {
                             className={'border-0 text-xs md:text-sm px-2 w-full'}
                         />
                         </div>
-                        <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
+                        <div className="relative border-1 py-2 border-gray-300 rounded text-sm w-full">
                             <div className="absolute -top-3">
                                 <label className="text-xs px-2 bg-white text-green-500">Email</label>
                             </div>
@@ -147,7 +147,7 @@ const ViewAttendance = () => {
                     </MiniLayout>
                </Container>
             </Layout>
-
+            <Spacer/>
             <Footer /> 
         </>
     )

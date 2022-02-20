@@ -41,7 +41,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/dashboard/member" element={<Member />} />
         <Route path="/dashboard/member/attendance" element={<ViewAttendance />} />
         <Route path="/dashboard/member/dues" element={<ViewDues />} />

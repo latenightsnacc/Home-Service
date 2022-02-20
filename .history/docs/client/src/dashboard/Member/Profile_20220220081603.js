@@ -108,46 +108,13 @@ const ViewAttendance = () => {
                             className={'border-0 text-xs md:text-sm px-2 w-full'}
                         />
                         </div>
-                        <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
-                            <div className="absolute -top-3">
-                                <label className="text-xs px-2 bg-white text-green-500">Place of Primary Assignment</label>
-                            </div>
-                            <input 
-                            type={'text'}
-                            placeholder={'P.P.A'}
-                            value={'Digital Dreams Ltd'}
-                            className={'border-0 text-xs md:text-sm px-2 w-full'}
-                        />
-                        </div>
-                        <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
-                            <div className="absolute -top-3">
-                                <label className="text-xs px-2 bg-white text-green-500">Phone (Whatsapp)</label>
-                            </div>
-                            <input 
-                            type={'text'}
-                            placeholder={'Full Name'}
-                            value={'08125018789'}
-                            className={'border-0 text-xs md:text-sm px-2 w-full'}
-                        />
-                        </div>
-                        <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
-                            <div className="absolute -top-3">
-                                <label className="text-xs px-2 bg-white text-green-500">Email</label>
-                            </div>
-                            <input 
-                            type={'text'}
-                            placeholder={'Email'}
-                            value={'egonubuchi97@gmail.com'}
-                            className={'border-0 text-xs md:text-sm px-2 w-full'}
-                        />
-                        </div>
                         
                         
                     </form>
                     </MiniLayout>
                </Container>
             </Layout>
-
+            <Spacer/>
             <Footer /> 
         </>
     )

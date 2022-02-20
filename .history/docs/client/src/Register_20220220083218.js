@@ -153,4 +153,4 @@ const ViewAttendance = () => {
     )
 }
 
-export default ViewAttendance;
+export default Register;

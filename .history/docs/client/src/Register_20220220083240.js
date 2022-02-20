@@ -9,16 +9,9 @@ import Layout from "../../components/Layout";
 import ProfilePic from "../../assets/Debs.png";
 import MiniLayout from "../../components/MiniLayout";
 
-const ViewAttendance = () => {
-    let display = 'hidden';
+const Register = () => {
+   
 
-    const toggleDisplay = (e) => {
-        if(display === 'hidden'){
-            display = 'block';
-        } else {
-            display = 'hidden';
-        }
-    }
     return(
         <>
            <Navbar />
@@ -153,4 +146,4 @@ const ViewAttendance = () => {
     )
 }
 
-export default ViewAttendance;
+export default Register;
