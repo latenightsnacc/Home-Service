@@ -15,9 +15,10 @@ const Login = () => {
            <Layout>
                
                <Container>
-               <div className="flex h-screen flex-col items-center justify-center">
+                    <MiniLayout>
+                        <div className="flex h-screen flex-col items-center justify-center">
                             <form className="w-full md:w-3/6 mx-auto">
-                            <div className="mb-4 text-center">
+                            <div className="mt-5 mb-4 text-center">
                             <h2 className="font-bold md:text-xl mb-2">Login</h2>
                                 <h1 className="font-bold md:text-2xl text-green-500">CDS E-ATTENDANCE</h1>
                                 
@@ -51,6 +52,8 @@ const Login = () => {
                             
                             </form>
                         </div>
+                    
+                    </MiniLayout>
                </Container>
             </Layout>
             <Footer />

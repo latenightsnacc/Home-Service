@@ -15,7 +15,8 @@ const Login = () => {
            <Layout>
                
                <Container>
-               <div className="flex h-screen flex-col items-center justify-center">
+                    <MiniLayout>
+                        <div className="flex h-screen flex-col items-center justify-center">
                             <form className="w-full md:w-3/6 mx-auto">
                             <div className="mb-4 text-center">
                             <h2 className="font-bold md:text-xl mb-2">Login</h2>
@@ -51,6 +52,8 @@ const Login = () => {
                             
                             </form>
                         </div>
+                    
+                    </MiniLayout>
                </Container>
             </Layout>
             <Footer />
