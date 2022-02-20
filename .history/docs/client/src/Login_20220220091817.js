@@ -8,7 +8,7 @@ import Layout from "./components/Layout";
 import MiniLayout from "./components/MiniLayout";
 import Spacer from "./components/Spacer";
 
-const Login = () => {
+const Register = () => {
    
     return(
         <>
@@ -126,4 +126,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Register;
