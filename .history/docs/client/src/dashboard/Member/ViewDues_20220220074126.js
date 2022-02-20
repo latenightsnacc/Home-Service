@@ -54,8 +54,8 @@ const ViewAttendance = () => {
                <Container>
                    <MemberMenu 
                    itemColor1={"text-gray-300"}
-                   itemColor2={"text-green-500"}
-                   itemColor3={"text-gray-300"}
+                   itemColor3={"text-green-500"}
+                   itemColor2={"text-gray-300"}
                    itemColor4={"text-gray-300"}
                    />
                    
@@ -66,8 +66,8 @@ const ViewAttendance = () => {
                     <table className="table table-sm table-bordered border-success text-xs md:text-sm bg-white rounded">
                         <thead>
                             <tr>
-                                <th scope="col" className="text-left">Month | Week</th>
-                                <th scope="col" className="text-center ">1</th>
+                                <th scope="col" className="text-left">Month</th>
+                                <th scope="col" className="text-center ">Status</th>
                                 <th scope="col" className="text-center">2</th>
                                 <th scope="col" className="text-center ">3</th>
                                 <th scope="col" className="text-center ">4</th>

@@ -54,8 +54,8 @@ const ViewAttendance = () => {
                <Container>
                    <MemberMenu 
                    itemColor1={"text-gray-300"}
-                   itemColor2={"text-green-500"}
-                   itemColor3={"text-gray-300"}
+                   itemColor3={"text-green-500"}
+                   itemColor2={"text-gray-300"}
                    itemColor4={"text-gray-300"}
                    />
                    

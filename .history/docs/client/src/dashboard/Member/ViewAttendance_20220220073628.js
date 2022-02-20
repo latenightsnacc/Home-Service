@@ -90,7 +90,7 @@ const ViewAttendance = () => {
                             <td className="text-center text-yellow-300">
                                 <i class="fa-solid fa-square-check"></i>
                             </td>
-                            <td className="text-center text-red-400">
+                            <td className="text-center">
                             <i class="fa-solid fa-square-xmark"></i>
                             </td>
                             <td className="text-center">

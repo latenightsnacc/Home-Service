@@ -66,37 +66,26 @@ const ViewAttendance = () => {
                     <table className="table table-sm table-bordered border-success text-xs md:text-sm bg-white rounded">
                         <thead>
                             <tr>
-                                <th scope="col" className="text-left">Month | Week</th>
+                                <th scope="col" className="text-left">Week</th>
                                 <th scope="col" className="text-center ">1</th>
                                 <th scope="col" className="text-center">2</th>
                                 <th scope="col" className="text-center ">3</th>
                                 <th scope="col" className="text-center ">4</th>
-                                <th scope="col" className="text-center ">5</th>
-                                <th scope="col" className="text-center ">%</th>
+                                {/* <th scope="col" className="text-left ">5</th> */}
+                                <th scope="col" className="text-left ">%</th>
                             </tr>
                         </thead>
                         <tbody className="font-light">
                         <tr>
-                            <th cl>January</th>
-                            <td className="text-center text-green-400">
-                                <i class="fa-solid fa-square-check"></i>
+                            <td>January</td>
+                            <td>
+                                <div className="w-7 h-7 rounded bg-green-500"></div>
                             </td>
-                            <td className="text-center text-yellow-300">
-                                <i class="fa-solid fa-square-check"></i>
-                            </td>
-                            <td className="text-center text-green-400">
-                                <i class="fa-solid fa-square-check"></i>
-                            </td>
-                            <td className="text-center text-yellow-300">
-                                <i class="fa-solid fa-square-check"></i>
-                            </td>
-                            <td className="text-center text-red-400">
-                            <i class="fa-solid fa-square-xmark"></i>
-                            </td>
-                            <td className="text-center">
-                                100%
-                            </td>
-                            
+                            <td>January</td>
+                            <td>January</td>
+                            <td>January</td>
+                            <td>January</td>
+                            <td>January</td>
                         </tr>    
                                                       
                         </tbody>

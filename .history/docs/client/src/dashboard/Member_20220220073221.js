@@ -64,6 +64,9 @@ const Member = () => {
                
                <Container>
                    <MiniLayout>
+                       <div>
+                           
+                       </div>
                    <div className="w-full  py-2 px-2  rounded h-20 flex flex-col  justify-center md:flex-row md:justify-start md:items-center shadow-sm my-3">
                        
                         <span className="text-xs md:mr-1 py-1 px-2  w-auto rounded md:bg-green-100 ">{(new Date()).toLocaleDateString('en-US',{

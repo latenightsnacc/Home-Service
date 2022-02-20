@@ -6,9 +6,10 @@ import Footer from '../../components/Footer';
 import Spacer from '../../components/Spacer';
 import Container from "../../components/Container";
 import Layout from "../../components/Layout";
-import ProfilePic from "../../assets/Debs.png"
+import ProfilePic from "../../assets/Debs.png";
+import MiniLayout from "../../components/MiniLayout";
 
-const ViewDues = () => {
+const ViewAttendance = () => {
     let display = 'hidden';
 
     const toggleDisplay = (e) => {
@@ -33,7 +34,7 @@ const ViewDues = () => {
                     </div>
                     <div className="ml-5 md:ml-10 ">
                         <h1 className="leading-7 font-medium  md:text-2xl mb-1">Welcome back, Deborah</h1>
-                        <div className="flex flex-col text-sm text-gray-700 md:text-base">
+                        <div className="flex flex-col text-xs text-gray-700 md:text-sm lg:text-base">
                             <span className="font-medium">Statecode: EN/21A/0324</span>
                             <span className="my-1 font-medium text-green-500">CDS Group: I.C.T</span>
                             <span className="text-xs font-medium text-gray-400  md:text-sm">{(new Date()).toLocaleDateString('en-US',{
@@ -51,17 +52,51 @@ const ViewDues = () => {
                </div>
                
                <Container>
-               <MemberMenu 
+                   <MemberMenu 
                    itemColor1={"text-gray-300"}
-                   itemColor3={"text-green-400"}
+                   itemColor3={"text-green-500"}
                    itemColor2={"text-gray-300"}
                    itemColor4={"text-gray-300"}
                    />
                    
                </Container>
-               
+               <Spacer />
                <Container>
-                    <div className={`${display}bg-red-400 mx-auto w-5/6 h-56`}></div>
+                    <MiniLayout>
+                    <table className="table table-sm table-bordered border-success text-xs md:text-sm bg-white rounded">
+                        <thead>
+                            <tr>
+                                <th scope="col" className="text-left">Month</th>
+                                <th scope="col" className="text-center ">Status</th>
+                                <th scope="col" className="text-center">Amount</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody className="font-light">
+                        <tr>
+                            <th>January</th>
+                            <td className="text-center text-green-400">
+                                <i class="fa-solid fa-square-check"></i>
+                            </td>
+                            <td className="text-center">
+                                100
+                            </td>
+                            
+                        </tr>    
+                        <tr>
+                            <th>February</th>
+                            <td className="text-center text-red-400">
+                            <i class="fa-solid fa-square-xmark"></i>
+                            </td>
+                            <td className="text-center">
+                                0
+                            </td>
+                            
+                        </tr>    
+                                                      
+                        </tbody>
+                    </table>
+                    </MiniLayout>
                </Container>
             </Layout>
             <Spacer/>
@@ -70,4 +105,4 @@ const ViewDues = () => {
     )
 }
 
-export default ViewDues;
+export default ViewAttendance;
