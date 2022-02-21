@@ -11,23 +11,26 @@ import Spacer from "./components/Spacer";
 const Register = () => {
     
     const [profile, setProfile] = useState([]);
-    const [file, setFile] = useState([])
+    const [file, setFile] = useState({
+        fileName: '',
+        filePath: ''
+    })
     const corperDetails = (e) => {
         setProfile({
             ...profile,
             [e.target.name]: e.target.value
         })
     }
-    
     // const profilePic = (e) => {
-    //      setFile({
-    //          ...file,
-    //          [e.target.name]: e.target.value
-    //      })
+    //     setFile({
+    //         ...file,
+    //         fileName: e.target.name,
+    //         filePath: e.target.value
+    //     })
     // }
     const createProfile = (e) => {
        e.preventDefault();
-       console.log(profile);
+       
         // navigate('profilecreated')
     }
     
@@ -90,7 +93,7 @@ const Register = () => {
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
                             onChange={corperDetails} 
                             required>
-                                <option selected disabled>Select CDS Group</option>
+                                <option disabled>Select CDS Group</option>
                                 <option value={'Information Comunication Technology (I.C.T)'}>Information Comunication Technology (I.C.T)</option>
                                 <option value={'Band'}>Band</option>
                             </select>
@@ -127,10 +130,9 @@ const Register = () => {
                             </div>
                             <input 
                             type={'email'}
-                            name={'email'}
                             value={profile.email}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
-                            onChange={corperDetails}
+                            onChange={corperDetails'}
                             required 
                             />
                         </div>
@@ -140,9 +142,8 @@ const Register = () => {
                             </div>
                             <input 
                             type="file"
-                            name={true}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
-                            onChange={corperDetails}
+                            
                             required
                             />
                         </div>

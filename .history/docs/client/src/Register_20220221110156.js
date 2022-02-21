@@ -11,23 +11,26 @@ import Spacer from "./components/Spacer";
 const Register = () => {
     
     const [profile, setProfile] = useState([]);
-    const [file, setFile] = useState([])
+    const [file, setFile] = useState({
+        fileName: '',
+        filePath: ''
+    })
     const corperDetails = (e) => {
         setProfile({
             ...profile,
             [e.target.name]: e.target.value
         })
     }
-    
     // const profilePic = (e) => {
-    //      setFile({
-    //          ...file,
-    //          [e.target.name]: e.target.value
-    //      })
+    //     setFile({
+    //         ...file,
+    //         fileName: e.target.name,
+    //         filePath: e.target.value
+    //     })
     // }
     const createProfile = (e) => {
        e.preventDefault();
-       console.log(profile);
+       
         // navigate('profilecreated')
     }
     
@@ -64,7 +67,7 @@ const Register = () => {
                             name={'statecode'}
                             value={profile.statecode}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0 text-uppercase'}
-                            onChange={corperDetails}
+                            onChange={corperDetails'}
                             required />
                         </div>
                         <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full hover:border-green-400">
@@ -74,9 +77,9 @@ const Register = () => {
                             <input 
                             type={'text'}
                             name={"lga"}
-                            value={profile.lga}
+                            value={'profile.lga'}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
-                            onChange={corperDetails}
+                            onChange={'corperDetails'}
                             required
                             />
                         </div>
@@ -86,11 +89,11 @@ const Register = () => {
                             </div>
                             <select 
                             name="cds_group"
-                            value={profile.cds_group}
+                            value={'profile.cds_group'}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
-                            onChange={corperDetails} 
+                            onChange={'corperDetails'} 
                             required>
-                                <option selected disabled>Select CDS Group</option>
+                                <option disabled>Select CDS Group</option>
                                 <option value={'Information Comunication Technology (I.C.T)'}>Information Comunication Technology (I.C.T)</option>
                                 <option value={'Band'}>Band</option>
                             </select>
@@ -102,9 +105,9 @@ const Register = () => {
                             <input 
                             type={'text'}
                             name={'ppa'}
-                            value={profile.ppa}
+                            value={'profile.ppa'}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
-                            onChange={corperDetails}
+                            onChange={'corperDetails'}
                             required
                             />
                         </div>
@@ -115,9 +118,9 @@ const Register = () => {
                             <input 
                             type={"tel"}
                             name={"phone_no"}
-                            value={profile.phone_no}
+                            value={'profile.phone_no'}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
-                            onChange={corperDetails}
+                            onChange={'corperDetails'}
                             required
                             />
                         </div>
@@ -127,10 +130,9 @@ const Register = () => {
                             </div>
                             <input 
                             type={'email'}
-                            name={'email'}
                             value={profile.email}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
-                            onChange={corperDetails}
+                            onChange={'corperDetails'}
                             required 
                             />
                         </div>
@@ -140,9 +142,8 @@ const Register = () => {
                             </div>
                             <input 
                             type="file"
-                            name={true}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
-                            onChange={corperDetails}
+                            
                             required
                             />
                         </div>

@@ -127,7 +127,7 @@ const Register = () => {
                             </div>
                             <input 
                             type={'email'}
-                            name={'email'}
+                            name=
                             value={profile.email}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
                             onChange={corperDetails}
@@ -140,7 +140,6 @@ const Register = () => {
                             </div>
                             <input 
                             type="file"
-                            name={true}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
                             onChange={corperDetails}
                             required

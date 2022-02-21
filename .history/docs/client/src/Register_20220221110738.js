@@ -18,7 +18,7 @@ const Register = () => {
             [e.target.name]: e.target.value
         })
     }
-    
+    console.log()
     // const profilePic = (e) => {
     //      setFile({
     //          ...file,
@@ -27,7 +27,7 @@ const Register = () => {
     // }
     const createProfile = (e) => {
        e.preventDefault();
-       console.log(profile);
+       
         // navigate('profilecreated')
     }
     
@@ -127,7 +127,6 @@ const Register = () => {
                             </div>
                             <input 
                             type={'email'}
-                            name={'email'}
                             value={profile.email}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
                             onChange={corperDetails}
@@ -140,9 +139,8 @@ const Register = () => {
                             </div>
                             <input 
                             type="file"
-                            name={true}
                             className={'border-0 text-xs md:text-sm px-2 w-full focus:ring-0 focus:outline-0'}
-                            onChange={corperDetails}
+                            
                             required
                             />
                         </div>
