@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import Container from "./components/Container";
 import Layout from "./components/Layout";
 
+import MiniLayout from "./components/MiniLayout";
+import Spacer from "./components/Spacer";
 
 const Login = () => {
    
@@ -13,7 +15,7 @@ const Login = () => {
            <Layout>
                
                <Container>
-                    <div className="flex h-screen flex-col items-center justify-center">
+                    <div className="flex h- flex-col items-center justify-center">
                             <form className="w-full md:w-3/6 mx-auto">
                             <div className="mb-4 text-center">
                             <h2 className="font-bold md:text-xl mb-2">Login</h2>

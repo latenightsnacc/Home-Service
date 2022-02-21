@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import Container from "./components/Container";
 import Layout from "./components/Layout";
 
+import MiniLayout from "./components/MiniLayout";
+import Spacer from "./components/Spacer";
 
 const Login = () => {
    
@@ -48,7 +50,7 @@ const Login = () => {
                             <button className="w-full bg-green-300 text-white p-2 hover:bg-green-500 hover:shadow-lg">Create Profile</button>
                             
                             </form>
-                    </div>
+                        </div>
                </Container>
             </Layout>
             <Footer />
