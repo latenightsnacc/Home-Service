@@ -11,16 +11,15 @@ import MiniLayout from "../../components/MiniLayout";
 
 const ViewAttendance = () => {
     const [opacity, setOpacity] = useState('opacity-50');
-    const [btnValue, setBtnValue] = useState('Edit');
     
 
     const editProfile = (e) => {
         e.preventDefault();
         if(e.target.value === 'Edit') {
-            setBtnValue('Save');
+            e.target.value = 'Save';
            setOpacity('opacity-100');
         } else {
-            setBtnValue('Edit');
+            e.target.value = 'Edit';
            setOpacity('opacity-50');
         }
         
@@ -149,7 +148,7 @@ const ViewAttendance = () => {
                         </div>
                         
                         <input type="button" 
-                        value={btnValue}
+                        value={'Edit'}
                         onClick={editProfile}
                         className="w-full bg-green-300 text-white p-2 hover:bg-green-500 focus:ring-0 focus:outline-0' hover:shadow-lg"
                         />

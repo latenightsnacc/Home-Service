@@ -20,7 +20,7 @@ const ViewAttendance = () => {
             setBtnValue('Save');
            setOpacity('opacity-100');
         } else {
-            setBtnValue('Edit');
+            setBtnValue('Save');
            setOpacity('opacity-50');
         }
         

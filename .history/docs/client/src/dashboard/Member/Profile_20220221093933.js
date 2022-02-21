@@ -17,10 +17,10 @@ const ViewAttendance = () => {
     const editProfile = (e) => {
         e.preventDefault();
         if(e.target.value === 'Edit') {
-            setBtnValue('Save');
+            set
            setOpacity('opacity-100');
         } else {
-            setBtnValue('Edit');
+            e.target.value = 'Edit';
            setOpacity('opacity-50');
         }
         

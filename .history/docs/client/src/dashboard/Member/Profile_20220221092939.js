@@ -10,20 +10,8 @@ import ProfilePic from "../../assets/Debs.png";
 import MiniLayout from "../../components/MiniLayout";
 
 const ViewAttendance = () => {
-    const [opacity, setOpacity] = useState('opacity-50');
-    const [btnValue, setBtnValue] = useState('Edit');
-    
-
     const editProfile = (e) => {
-        e.preventDefault();
-        if(e.target.value === 'Edit') {
-            setBtnValue('Save');
-           setOpacity('opacity-100');
-        } else {
-            setBtnValue('Edit');
-           setOpacity('opacity-50');
-        }
-        
+        e.target.value = 'Save';
     }
     return(
         <>
@@ -69,7 +57,7 @@ const ViewAttendance = () => {
                <Spacer />
                <Container>
                     <MiniLayout>
-                    <form className={`w-full md:w-4/6 mx-auto ${opacity}`}>
+                    <form className="w-full md:w-4/6 mx-auto">
                         <div className="relative border-1 py-2 mb-4 border-gray-300 rounded text-sm w-full">
                             <div className="absolute -top-3">
                                 <label className="text-xs px-2 bg-white text-green-500">Full Name</label>
@@ -149,8 +137,7 @@ const ViewAttendance = () => {
                         </div>
                         
                         <input type="button" 
-                        value={btnValue}
-                        onClick={editProfile}
+                        value={''}
                         className="w-full bg-green-300 text-white p-2 hover:bg-green-500 focus:ring-0 focus:outline-0' hover:shadow-lg"
                         />
 
