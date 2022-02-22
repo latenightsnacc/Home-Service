@@ -40,7 +40,7 @@ db.connect(function (err) {
 // })
 // Use of Multer
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, './public', 'images'),
+    destination: path.join(__dirname, '../public_html', 'images'),
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + file.originalname )
     }
@@ -53,7 +53,7 @@ const storage = multer.diskStorage({
 // POST TO DB
 app.post("/createprofile", (req,res) => {
     try{
-        const upload = multer({ storage: storage}).single('profile_pic');
+        let upload = multer({ storage: storage}).single('profile_pic');
 
         upload(req, res, function(err) {
             if (!req.file) {
@@ -65,7 +65,7 @@ app.post("/createprofile", (req,res) => {
             } else if (err) {
                 return res.send(err);
             } else {
-                var imgsrc = 'http://localhost:3001/images/' + req.file.filename
+                
             }
 
             const name = req.body.name;
@@ -77,19 +77,27 @@ app.post("/createprofile", (req,res) => {
             const lga = req.body.lga;
             const cds = req.body.cds;
             const ppa = req.body.ppa;
-            const profilePic = imgsrc;
+            const profilePic = req.file.filename;
         
-            // db.query('INSERT INTO corpers (name, email, phone, state, state_code, batch, lga, cds_group, ppa, profile_pic) VALUES(?,?,?,?,?,?,?,?,?,?)', [name,email,phone,state,statecode,batch,lga,cds,ppa,profilePic], (err, result) => {
-            //     if(err){
-            //         console.log(err)
-            //     } else {
-            //         res.send("Values Inserted");
-            //         console.log('Profile created.');
-            //     }
-            // })
+            db.query('INSERT INTO corpers (name, email, phone, state, state_code, batch, lga, cds_group, ppa, profile_pic) VALUES(?,?,?,?,?,?,?,?,?,?)', [name,email,phone,state,statecode,batch,lga,cds,ppa,profilePic], (err, result) => {
+                if(err){
+                    console.log(err)
+                } else {
+                    res.send("Values Inserted");
+                    console.log('Profile created.');
+                }
+            })
         })
     }catch(e){
         console.log(e);
+    }
+    if(!req.file) {
+        console.log("No file upload");
+    } else {
+        console.log(req.file.filename);
+        // const imgSrc = 'http://localhost:3001/images'+req.file.filename;
+        // console.log(imgSrc);
+        console.log(req.body);
     }
 })
 app.get("/", (req,res) => {

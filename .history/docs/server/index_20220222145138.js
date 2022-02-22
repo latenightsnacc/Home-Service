@@ -91,6 +91,14 @@ app.post("/createprofile", (req,res) => {
     }catch(e){
         console.log(e);
     }
+    if(!req.file) {
+        console.log("No file upload");
+    } else {
+        console.log(req.file.filename);
+        // const imgSrc = 'http://localhost:3001/images'+req.file.filename;
+        // console.log(imgSrc);
+        console.log(req.body);
+    }
 })
 app.get("/", (req,res) => {
     res.send("Hello world!")
