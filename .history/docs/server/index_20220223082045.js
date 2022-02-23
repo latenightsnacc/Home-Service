@@ -44,7 +44,7 @@ app.post("/createAccount", (req,res) => {
 app.get("/", (req,res) => {
     res.send("Hello world!")
 })
-app.post("/newAccount", (req,res) => {
+app.post("/newaccount", (req,res) => {
     console.log(req.body);
 })
 // Get list of all members

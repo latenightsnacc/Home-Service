@@ -30,22 +30,46 @@ db.connect(function (err) {
 })
 
 // Use of Multer
+// var storage = multer.diskStorage({
+//     destination: (req, file, callBack) => {
+//         callBack(null, './public/images/')     // './public/images/' directory name where save the file
+//     },
+//     filename: (req, file, callBack) => {
+//         callBack(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+//     }
+// })
+// Use of Multer
 const storage = multer.diskStorage({
     destination: path.join(__dirname, './public', 'images'),
     filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + path.extname(file.originalname) )
+        cb(null, Date.now() + '-' + file.originalname )
     }
 })
+const upload = multer({ storage: storage});
+
 
 // POST TO DB
-app.post("/createAccount", (req,res) => {
-    console.log('req.body');
+app.post("/createprofile",upload.single('profile_pic'), (req,res) => {
+    try{
+        
+        upload(req, res, function(err) {
+            
+
+            // db.query('INSERT INTO corpers (name, email, phone, state, state_code, batch, lga, cds_group, ppa, profile_pic) VALUES(?,?,?,?,?,?,?,?,?,?)', [name,email,phone,state,statecode,batch,lga,cds,ppa,profilePic], (err, result) => {
+            //     if(err){
+            //         console.log(err)
+            //     } else {
+            //         res.send("Values Inserted");
+            //         console.log('Profile created.');
+            //     }
+            // })
+        })
+    }catch(e){
+        console.log(e);
+    }
 })
 app.get("/", (req,res) => {
     res.send("Hello world!")
-})
-app.post("/newAccount", (req,res) => {
-    console.log(req.body);
 })
 // Get list of all members
 app.get("/members", (req,res) => {

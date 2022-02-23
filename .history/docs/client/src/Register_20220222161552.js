@@ -27,25 +27,30 @@ const Register = () => {
           filepreview: URL.createObjectURL(e.target.files[0])});
       }
     
-    const createProfile =  (e) => {
+    const createProfile = async (e) => {
        e.preventDefault();
        console.log(profile);
-       console.log(profilePic);
-       const formData = new FormData(document.getElementById("createProfiles"));
-       console.log(formData.get('profile_pic'));
-         try{
-                Axios.post(
-                 "http://localhost:3001/newAccount",
-                 {
-                    test: 'hello_world'
-                 }, {
-                     headers: {"Content-Type": "multipart/form-data"}
-                   }).then(() => {
-                     console.log("Corper's E-Attendance Profile Created.")
-                   })
-                 } catch (e) {
-                   console.log(e);
-                 }
+       
+
+       const formData = new FormData();
+       formData.append("name", profile.name);
+       formData.append("statecode", profile.statecode);
+       formData.append("lga", profile.lga);
+       formData.append("cds_group", profile.cds_group);
+       formData.append("ppa", profile.ppa);
+       formData.append("phone", profile.phone_no);
+       formData.append("email", profile.email);
+       formData.append("file", file);
+       formData.append("filename", fileName);
+        try{
+            const res = await Axios.post(
+                "http://localhost:3001/create",
+                formData
+            );
+            console.log(res);
+        }catch(e){
+            console.log(e);
+        }
         
     }
     
@@ -54,7 +59,7 @@ const Register = () => {
            <Layout>
                <Container>
                <MiniLayout>
-                    <form onSubmit={createProfile} className="w-full md:w-4/6 mx-auto" id="createProfiles">
+                    <form className="w-full md:w-4/6 mx-auto">
                         <div className="mt-5 mb-4 text-center">
                         <h2 className="font-bold md:text-xl mb-2">Create Profile</h2>
                             <h1 className="font-bold md:text-2xl text-green-500">CDS E-ATTENDANCE</h1>
@@ -165,7 +170,7 @@ const Register = () => {
                             />
                         </div>
                         <button
-                         
+                        onClick={createProfile} 
                         className="w-full bg-green-300 text-white p-2 hover:bg-green-500 rounded hover:shadow-lg">Create Profile</button>
                         
                     </form>

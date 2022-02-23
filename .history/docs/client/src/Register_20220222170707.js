@@ -27,25 +27,34 @@ const Register = () => {
           filepreview: URL.createObjectURL(e.target.files[0])});
       }
     
-    const createProfile =  (e) => {
+    const createProfile = async (e) => {
        e.preventDefault();
        console.log(profile);
        console.log(profilePic);
        const formData = new FormData(document.getElementById("createProfiles"));
-       console.log(formData.get('profile_pic'));
-         try{
-                Axios.post(
-                 "http://localhost:3001/newAccount",
-                 {
-                    test: 'hello_world'
-                 }, {
-                     headers: {"Content-Type": "multipart/form-data"}
-                   }).then(() => {
-                     console.log("Corper's E-Attendance Profile Created.")
-                   })
-                 } catch (e) {
-                   console.log(e);
-                 }
+       con
+        try{
+            await Axios.post(
+                "http://localhost:3001/createAccount",
+                {
+                    c_name: profile.name,
+                    stateCode: profile.statecode,
+                    lga: profile.lga,
+                    cds: profile.cds_group,
+                    ppa: profile.ppa,
+                    phone: profile.phone_no,
+                    email: profile.email,
+                    pic: profilePic.file[0],
+                    pic_name: profilePic.fileName,
+                    c_status: 'Active'
+                }, {
+                    headers: {"Content-Type": "multipart/form-data"}
+                  }).then(() => {
+                    console.log("Corper's E-Attendance Profile Created.")
+                  })
+                } catch (e) {
+                  console.log(e);
+                }
         
     }
     

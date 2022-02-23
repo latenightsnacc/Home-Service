@@ -35,7 +35,7 @@ const Register = () => {
        console.log(formData.get('profile_pic'));
          try{
                 Axios.post(
-                 "http://localhost:3001/newAccount",
+                 "http://localhost:3001/newaccount",
                  {
                     test: 'hello_world'
                  }, {

@@ -45,7 +45,7 @@ app.get("/", (req,res) => {
     res.send("Hello world!")
 })
 app.post("/newAccount", (req,res) => {
-    console.log(req.body);
+    console.log(req.body');
 })
 // Get list of all members
 app.get("/members", (req,res) => {

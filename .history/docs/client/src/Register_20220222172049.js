@@ -27,17 +27,17 @@ const Register = () => {
           filepreview: URL.createObjectURL(e.target.files[0])});
       }
     
-    const createProfile =  (e) => {
+    const createProfile = async (e) => {
        e.preventDefault();
        console.log(profile);
        console.log(profilePic);
        const formData = new FormData(document.getElementById("createProfiles"));
        console.log(formData.get('profile_pic'));
          try{
-                Axios.post(
-                 "http://localhost:3001/newAccount",
+             await Axios.post(
+                 "http://localhost:3001/createAccount",
                  {
-                    test: 'hello_world'
+                    test: 'hello'
                  }, {
                      headers: {"Content-Type": "multipart/form-data"}
                    }).then(() => {

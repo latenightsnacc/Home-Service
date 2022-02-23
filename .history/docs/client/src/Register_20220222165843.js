@@ -27,25 +27,42 @@ const Register = () => {
           filepreview: URL.createObjectURL(e.target.files[0])});
       }
     
-    const createProfile =  (e) => {
+    const createProfile = async (e) => {
        e.preventDefault();
        console.log(profile);
        console.log(profilePic);
-       const formData = new FormData(document.getElementById("createProfiles"));
-       console.log(formData.get('profile_pic'));
-         try{
-                Axios.post(
-                 "http://localhost:3001/newAccount",
-                 {
-                    test: 'hello_world'
-                 }, {
-                     headers: {"Content-Type": "multipart/form-data"}
-                   }).then(() => {
-                     console.log("Corper's E-Attendance Profile Created.")
-                   })
-                 } catch (e) {
-                   console.log(e);
-                 }
+       const formData = new FormData();
+       formData.append("name", profile.name);
+       formData.append("statecode", profile.statecode);
+       formData.append("lga", profile.lga);
+       formData.append("cds_group", profile.cds_group);
+       formData.append("ppa", profile.ppa);
+       formData.append("phone", profile.phone_no);
+       formData.append("email", profile.email);
+       formData.append('profilePic', profilePic.file[0]);
+        formData.append('profilePicName', profilePic.fileName);
+        console.log(formData);
+        try{
+            await Axios.post(
+                "http://localhost:3001/createAccount",
+                {
+                    c_name: profile.name,
+                    stateCode: profile.statecode,
+                    lga: profile.lga,
+                    cds: profile.cds_group,
+                    ppa: profile.ppa,
+                    phone: profile.phone_no,
+                    email: profile.email,
+                    pic: profilePic.file[0],
+                    pic_name: profilePic.
+                }, {
+                    headers: {"Content-Type": "multipart/form-data"}
+                  }).then(() => {
+                    console.log("Corper's E-Attendance Profile Created.")
+                  })
+                } catch (e) {
+                  console.log(e);
+                }
         
     }
     
@@ -54,7 +71,7 @@ const Register = () => {
            <Layout>
                <Container>
                <MiniLayout>
-                    <form onSubmit={createProfile} className="w-full md:w-4/6 mx-auto" id="createProfiles">
+                    <form onSubmit={createProfile} className="w-full md:w-4/6 mx-auto">
                         <div className="mt-5 mb-4 text-center">
                         <h2 className="font-bold md:text-xl mb-2">Create Profile</h2>
                             <h1 className="font-bold md:text-2xl text-green-500">CDS E-ATTENDANCE</h1>
